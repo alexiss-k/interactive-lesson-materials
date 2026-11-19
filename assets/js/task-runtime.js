@@ -153,7 +153,7 @@
         h('button', { class: 'btn', type: 'button', onclick: () => location.reload() }, '⟲ Пройти ще раз'),
         h('button', { class: 'btn', type: 'button', onclick: () => window.print() }, '🖨 Роздрукувати результат'),
         h('span', { class: 'spacer' }),
-        h('a', { class: 'btn', href: root + 'index.html?folder=' + encodeURIComponent(state.folder.id) }, 'До каталогу'),
+        h('a', { class: 'btn', href: root + 'index.html?folder=' + encodeURIComponent(state.folder.id) }, '← ' + state.folder.title),
         next ? h('a', { class: 'btn primary', href: root + next.file }, 'Наступне завдання →') : null));
     requestAnimationFrame(() => box.scrollIntoView({ behavior: 'smooth', block: 'start' }));
   }
