@@ -19,6 +19,12 @@ window.CATALOG = {
       title: 'Adobe Illustrator',
       icon: 'Ai',
       description: 'Векторна графіка: вектор і растр, інтерфейс, документ і колір, фігури, Shape Builder, Pathfinder, Pen Tool, експорт.'
+    },
+    {
+      id: 'html',
+      title: 'HTML',
+      icon: '</>',
+      description: 'Основи вебсторінок: теги та вкладеність, структура сторінки, абзаци й списки, заголовки, атрибути, посилання, зображення.'
     }
   ],
 
@@ -39,7 +45,16 @@ window.CATALOG = {
     'drawing': 'малюнок',
     'creative': 'творче завдання',
     'real-app': 'робота в Illustrator',
-    'quiz': 'вибір відповіді'
+    'quiz': 'вибір відповіді',
+    'html-tags': 'теги',
+    'html-nesting': 'вкладеність',
+    'html-structure': 'структура сторінки',
+    'html-text': 'абзаци й списки',
+    'html-headings': 'заголовки',
+    'html-attributes': 'атрибути',
+    'html-links': 'посилання',
+    'html-images': 'зображення',
+    'code-editor': 'пишемо код'
   },
 
   items: [
@@ -186,6 +201,94 @@ window.CATALOG = {
       file: 'lessons/adobe-illustrator/18-my-icon.html',
       tags: ['creative', 'drawing', 'pen-tool'], level: 3, needs: 'browser', duration: '30 хв',
       source: 'Урок 2 · Повторення: вектор, фігури, Pen Tool'
+    },
+    {
+      id: 'html-01', folder: 'html', order: 1,
+      title: 'Правильний тег чи помилка?',
+      summary: 'Розклади картки по кошиках: тег записано правильно чи з помилкою. Після перевірки під кожною карткою — пояснення.',
+      file: 'lessons/html/01-tag-or-mistake.html',
+      tags: ['html-tags', 'quiz'], level: 1, needs: 'browser', duration: '5 хв',
+      source: 'HTML: повторюємо основи'
+    },
+    {
+      id: 'html-02', folder: 'html', order: 2,
+      title: 'Збери абзац',
+      summary: 'Перетягуй блоки, щоб зібрати абзаци з жирним текстом. Праворуч одразу видно результат у браузері.',
+      file: 'lessons/html/02-build-a-paragraph.html',
+      tags: ['html-nesting', 'html-tags', 'html-text'], level: 1, needs: 'browser', duration: '10 хв',
+      source: 'HTML: повторюємо основи'
+    },
+    {
+      id: 'html-03', folder: 'html', order: 3,
+      title: 'Збери сторінку',
+      summary: 'Склади правильний «скелет» HTML-сторінки з блоків: doctype, html, head, title, body. Деякі блоки — зайві!',
+      file: 'lessons/html/03-build-a-page.html',
+      tags: ['html-structure', 'html-nesting'], level: 1, needs: 'browser', duration: '10 хв',
+      source: 'HTML: повторюємо основи'
+    },
+    {
+      id: 'html-04', folder: 'html', order: 4,
+      title: 'Сторінка зі списком',
+      summary: 'Додай у готовий «скелет» абзаци та списки: список покупок і рецепт.',
+      file: 'lessons/html/04-page-with-lists.html',
+      tags: ['html-text', 'html-structure'], level: 2, needs: 'browser', duration: '10 хв',
+      source: 'HTML: повторюємо основи'
+    },
+    {
+      id: 'html-05', folder: 'html', order: 5,
+      title: 'Збери статтю із заголовками',
+      summary: 'Два рівні: збирай статті із заголовками h1–h6 з блоків. У другому рівні є блоки-пастки.',
+      file: 'lessons/html/05-article-with-headings.html',
+      tags: ['html-headings', 'html-structure'], level: 2, needs: 'browser', duration: '10 хв',
+      source: 'HTML: заголовки, посилання, зображення й атрибути'
+    },
+    {
+      id: 'html-06', folder: 'html', order: 6,
+      title: 'Правильний атрибут чи помилка?',
+      summary: 'Розклади картки: атрибут записано правильно чи з помилкою (лапки, знак =, пробіли, назви атрибутів).',
+      file: 'lessons/html/06-attribute-or-mistake.html',
+      tags: ['html-attributes', 'quiz'], level: 2, needs: 'browser', duration: '5 хв',
+      source: 'HTML: заголовки, посилання, зображення й атрибути'
+    },
+    {
+      id: 'html-07', folder: 'html', order: 7,
+      title: 'Сторінка «Про мене»',
+      summary: 'Напиши код сторінки сам(-а): структура, заголовок, абзаци, жирний текст, список. Праворуч — живий результат і список вимог.',
+      file: 'lessons/html/07-about-me-page.html',
+      tags: ['code-editor', 'html-structure', 'html-text'], level: 2, needs: 'browser', duration: '20 хв',
+      source: 'HTML: повторюємо основи'
+    },
+    {
+      id: 'html-08', folder: 'html', order: 8,
+      title: 'Атрибути в дії',
+      summary: 'Рівень 1 — допиши значення id, щоб запрацювало меню сторінки. Рівень 2 — знайди й виправ 4 помилки в атрибутах.',
+      file: 'lessons/html/08-attributes-in-action.html',
+      tags: ['html-attributes', 'html-links'], level: 2, needs: 'browser', duration: '15 хв',
+      source: 'HTML: заголовки, посилання, зображення й атрибути'
+    },
+    {
+      id: 'html-09', folder: 'html', order: 9,
+      title: 'Майстерня посилань',
+      summary: 'Три рівні: збери посилання з блоків → допиши адреси різних типів → полагодь зламані посилання.',
+      file: 'lessons/html/09-links-workshop.html',
+      tags: ['html-links', 'html-attributes'], level: 3, needs: 'browser', duration: '15 хв',
+      source: 'HTML: заголовки, посилання, зображення й атрибути'
+    },
+    {
+      id: 'html-10', folder: 'html', order: 10,
+      title: 'Майстерня зображень',
+      summary: 'Три рівні: додай зображення з атрибутами → напиши правильні шляхи до файлів у різних папках → збери картинку-посилання.',
+      file: 'lessons/html/10-images-workshop.html',
+      tags: ['html-images', 'html-attributes', 'html-links'], level: 3, needs: 'browser', duration: '15 хв',
+      source: 'HTML: заголовки, посилання, зображення й атрибути'
+    },
+    {
+      id: 'html-11', folder: 'html', order: 11,
+      title: 'Сторінка-запрошення',
+      summary: 'Напиши сторінку-запрошення з нуля: заголовки з id, абзаци, зображення, зовнішнє й внутрішнє посилання. 10 вимог і живий результат.',
+      file: 'lessons/html/11-invitation-page.html',
+      tags: ['code-editor', 'creative', 'html-headings', 'html-links', 'html-images', 'html-attributes'], level: 3, needs: 'browser', duration: '30 хв',
+      source: 'HTML: заголовки, посилання, зображення й атрибути'
     }
   ]
 };

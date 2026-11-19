@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Правильний атрибут чи помилка? — HTML</title>
+  <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../assets/css/platform.css">
+  <link rel="stylesheet" href="../../assets/css/task.css">
+  <link rel="stylesheet" href="engine/games.css">
+  <link rel="stylesheet" href="engine/html-games.css">
+  <link rel="stylesheet" href="engine/html2-games.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../../index.html"><span class="ai-logo">IL</span> Інтерактивні уроки</a>
+  </header>
+  <main class="wrap task-page">
+    <section id="task-head" class="task-head"><h1>Правильний атрибут чи помилка?</h1></section>
+    <section id="task-game" class="game-host" aria-label="Практичне завдання">
+      <noscript><p class="err">Для виконання завдання увімкніть JavaScript.</p></noscript>
+    </section>
+    <section id="task-result" class="task-result" hidden aria-live="polite"></section>
+    <nav id="task-nav" class="task-nav" aria-label="Інші завдання"></nav>
+  </main>
+
+  <script src="../../data/catalog.js"></script>
+  <script src="../../assets/js/task-runtime.js"></script>
+  <script src="engine/html-core.js"></script>
+  <script src="engine/html2-games.js"></script>
+  <script src="engine/summaries.js"></script>
+  <script>
+    TaskRuntime.start({
+  "id": "html-06",
+  "game": "html2-sort",
+  "taskId": "attrsort",
+  "wide": true,
+  "data": {
+    "okLabel": "✅ Атрибут записано правильно",
+    "badLabel": "❌ Помилка в записі",
+    "items": [
+      {
+        "id": "s1",
+        "t": "<html lang=\"uk\">",
+        "ok": true,
+        "why": "lang=\"uk\" — мова сторінки українська."
+      },
+      {
+        "id": "s2",
+        "t": "<a href=\"https://osvita.ua\">",
+        "ok": true,
+        "why": "Адреса — у прямих лапках після знака =."
+      },
+      {
+        "id": "s3",
+        "t": "<img src=\"images/cat.jpg\" alt=\"Рудий кіт\">",
+        "ok": true,
+        "why": "Два атрибути, розділені пробілом."
+      },
+      {
+        "id": "s4",
+        "t": "<h2 id=\"contacts\">",
+        "ok": true,
+        "why": "id латиницею, одним словом."
+      },
+      {
+        "id": "s5",
+        "t": "<img src=\"logo.png\" alt=\"Логотип\" width=\"120\">",
+        "ok": true,
+        "why": "width — просто число, без px."
+      },
+      {
+        "id": "s6",
+        "t": "<a href=\"#top\">",
+        "ok": true,
+        "why": "# у href — посилання на місце цієї ж сторінки."
+      },
+      {
+        "id": "s7",
+        "t": "<ol type=\"I\">",
+        "ok": true,
+        "why": "Нумерація римськими цифрами I, II, III."
+      },
+      {
+        "id": "e1",
+        "t": "<\/a href=\"index.html\">",
+        "ok": false,
+        "why": "Атрибути пишуть лише у відкривальному тегу."
+      },
+      {
+        "id": "e2",
+        "t": "<a href \"index.html\">",
+        "ok": false,
+        "why": "Між назвою і значенням бракує знака =."
+      },
+      {
+        "id": "e3",
+        "t": "<img src=\"cat.jpg\"alt=\"Кіт\">",
+        "ok": false,
+        "why": "Між атрибутами потрібен пробіл."
+      },
+      {
+        "id": "e4",
+        "t": "<img src=“cat.jpg” alt=\"Кіт\">",
+        "ok": false,
+        "why": "Лапки мають бути прямі: \" \", а не “ ”."
+      },
+      {
+        "id": "e5",
+        "t": "<img src=\"cat.jpg\" alt=\"Кіт\" width=\"300px\">",
+        "ok": false,
+        "why": "У width пишуть лише число: width=\"300\"."
+      },
+      {
+        "id": "e6",
+        "t": "<h2 id=\"мої контакти\">",
+        "ok": false,
+        "why": "У id не може бути пробілів."
+      },
+      {
+        "id": "e7",
+        "t": "<a hreff=\"index.html\">",
+        "ok": false,
+        "why": "Помилка в назві атрибута: правильно href."
+      }
+    ]
+  }
+});
+  </script>
+</body>
+</html>
