@@ -17,6 +17,11 @@
     const m10 = n % 10, m100 = n % 100;
     return m10 === 1 && m100 !== 11 ? one : m10 >= 2 && m10 <= 4 && (m100 < 12 || m100 > 14) ? few : many;
   };
+  const icon = f => {
+    const c = f.color || {};
+    const st = [c.bg && 'background:' + c.bg, c.fg && 'color:' + c.fg, c.border && 'border-color:' + c.border].filter(Boolean).join(';');
+    return `<span class="folder-ic"${st ? ` style="${esc(st)}"` : ''}>${esc(f.icon || '📁')}</span>`;
+  };
   const tasksWord = n => n + ' ' + plural(n, 'завдання', 'завдання', 'завдань');
 
   const state = { folder: '', tags: [], level: '', needs: '', q: '' };
@@ -117,7 +122,7 @@
     el.href = folderUrl(f.id);
     el.innerHTML = `
       <span class="fc-top">
-        <span class="folder-ic">${esc(f.icon || '📁')}</span>
+        ${icon(f)}
         <span class="fc-name"><b>${esc(f.title)}</b><span class="muted">${tasksWord(list.length)}</span></span>
       </span>
       <span class="fc-desc">${esc(f.description || '')}</span>
@@ -162,7 +167,7 @@
   /* ---------- one folder ---------- */
   function renderFolderHead(f) {
     const total = ITEMS.filter(it => it.folder === f.id).length;
-    $('folder-head').innerHTML = `<span class="folder-ic">${esc(f.icon || '📁')}</span><div><h1>${esc(f.title)}</h1><p class="muted">${esc(f.description || '')}</p></div><span class="folder-n">${tasksWord(total)}</span>`;
+    $('folder-head').innerHTML = `${icon(f)}<div><h1>${esc(f.title)}</h1><p class="muted">${esc(f.description || '')}</p></div><span class="folder-n">${tasksWord(total)}</span>`;
     document.title = f.title + ' — Інтерактивні уроки';
   }
   function renderFilters() {
