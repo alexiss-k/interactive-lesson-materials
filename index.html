@@ -15,39 +15,56 @@
   </header>
 
   <main class="wrap catalog">
-    <section class="hero">
-      <h1>Архів практичних завдань</h1>
-      <p>Інтерактивні завдання з автоматичною перевіркою прямо в браузері. Обирай папку й теги, щоб знайти потрібне, і ділися посиланням з учнями чи колегами.</p>
+    <!-- Головна: лише папки -->
+    <section id="home" hidden>
+      <section class="hero">
+        <h1>Архів практичних завдань</h1>
+        <p>Інтерактивні завдання з автоматичною перевіркою прямо в браузері. Обери папку, щоб побачити її завдання, або знайди завдання за назвою.</p>
+      </section>
+      <label class="home-search">
+        <span class="sr-only">Пошук завдань у всіх папках</span>
+        <input id="hq" class="inp" type="search" placeholder="Пошук завдань у всіх папках…" autocomplete="off">
+      </label>
+      <div id="folder-grid" class="folder-grid"></div>
+      <p id="home-count" class="count" role="status" aria-live="polite"></p>
+      <div id="home-results"></div>
     </section>
 
-    <section class="filters card" aria-label="Фільтри">
-      <div class="f-row">
-        <label class="f-search">
-          <span class="sr-only">Пошук</span>
-          <input id="q" class="inp" type="search" placeholder="Пошук за назвою чи описом…" autocomplete="off">
-        </label>
-        <button id="reset" class="btn small ghost" type="button">Скинути фільтри</button>
-      </div>
-      <div class="f-group">
-        <div class="f-label">Папка</div>
-        <div id="folders" class="chips" role="group" aria-label="Папка"></div>
-      </div>
-      <div class="f-group">
-        <div class="f-label">Рівень</div>
-        <div id="levels" class="chips" role="group" aria-label="Рівень"></div>
-      </div>
-      <div class="f-group">
-        <div class="f-label">Де виконується</div>
-        <div id="needs" class="chips" role="group" aria-label="Де виконується"></div>
-      </div>
-      <div class="f-group">
-        <div class="f-label">Теги <small class="muted">(можна обрати кілька)</small></div>
-        <div id="tags" class="chips" role="group" aria-label="Теги"></div>
-      </div>
+    <!-- Одна папка: її завдання з фільтрами -->
+    <section id="folder-view" hidden>
+      <nav class="crumbs" aria-label="Навігація"><a href="index.html">← Усі папки</a></nav>
+      <header id="folder-head" class="folder-h folder-h-big"></header>
+
+      <section class="filters card" aria-label="Фільтри">
+        <div class="f-row">
+          <label class="f-search">
+            <span class="sr-only">Пошук у папці</span>
+            <input id="q" class="inp" type="search" placeholder="Пошук у цій папці…" autocomplete="off">
+          </label>
+          <button id="reset" class="btn small ghost" type="button">Скинути фільтри</button>
+        </div>
+        <div class="f-group">
+          <div class="f-label">Рівень</div>
+          <div id="levels" class="chips" role="group" aria-label="Рівень"></div>
+        </div>
+        <div class="f-group">
+          <div class="f-label">Де виконується</div>
+          <div id="needs" class="chips" role="group" aria-label="Де виконується"></div>
+        </div>
+        <div class="f-group">
+          <div class="f-label">Теги <small class="muted">(можна обрати кілька)</small></div>
+          <div id="tags" class="chips" role="group" aria-label="Теги"></div>
+        </div>
+      </section>
+
+      <p id="count" class="count" role="status" aria-live="polite"></p>
+      <div id="results" class="task-grid"></div>
     </section>
 
-    <p id="count" class="count" role="status" aria-live="polite"></p>
-    <div id="results"></div>
+    <section id="not-found" class="empty card" hidden>
+      <b>Такої папки немає.</b>
+      <p class="muted"><a href="index.html">Повернутися до всіх папок</a></p>
+    </section>
   </main>
 
   <footer class="foot wrap">

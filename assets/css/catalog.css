@@ -63,3 +63,32 @@ button.tag { cursor: pointer; }
   .task-grid { grid-template-columns: 1fr; }
   .folder-n { display: none; }
 }
+
+/* Home: folder cards */
+[hidden] { display: none !important; }
+.home-search { display: block; margin: 0 0 18px; max-width: 640px; }
+.folder-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; }
+.folder-card {
+  display: flex; flex-direction: column; gap: 12px; padding: 20px 22px; border-radius: var(--radius);
+  background: var(--paper); box-shadow: var(--shadow); color: inherit; text-decoration: none;
+  border: 1px solid transparent; transition: border-color .12s, transform .12s;
+}
+.folder-card:hover { border-color: #ffc994; transform: translateY(-2px); }
+.folder-card:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.fc-top { display: flex; gap: 14px; align-items: center; }
+.fc-name { display: grid; }
+.fc-name b { font-size: 21px; line-height: 1.2; }
+.fc-desc { color: #4b453f; font-size: 15px; }
+.fc-levels, .fc-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.fc-open { margin-top: auto; font-weight: 700; color: var(--accent-ink); }
+.folder-card:hover .fc-open { text-decoration: underline; }
+.fs-h { font-size: 20px; margin: 0 0 10px; }
+.fs-h a { color: inherit; }
+.tc-folder { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+
+/* Folder view */
+.crumbs { font-size: 14px; margin-bottom: 10px; }
+.crumbs a { color: var(--muted); }
+.folder-h-big { margin-bottom: 16px; }
+.folder-h-big h1 { font-size: 30px; margin: 0; }
+#results.task-grid > .empty { grid-column: 1 / -1; }
