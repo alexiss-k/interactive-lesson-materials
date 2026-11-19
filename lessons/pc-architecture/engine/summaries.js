@@ -4,6 +4,7 @@
   const R = window.TaskRuntime;
   if (!R) return;
   const { h } = R;
+  const plain = t => String(t == null ? '' : t).replace(/<[^>]+>/g, '');
   const count = o => Object.keys(o || {}).filter(k => o[k]).length;
 
   const stats = rows => h('dl', { class: 'res-stats' },
@@ -12,7 +13,7 @@
     h('h3', { text: title }),
     h('ul', { class: 'res-list' }, list.map(r => h('li', { class: r.right ? 'ok' : 'bad' },
       h('span', { class: 'res-ic', 'aria-hidden': 'true', text: r.right ? '✓' : '✗' }),
-      h('span', { text: r.text }))))) : null;
+      h('span', { text: plain(r.text) }))))) : null;
 
   /* photo / complaint quizzes */
   const quiz = d => stats([['Відповідей дано', count(d.ans)]]);

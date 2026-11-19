@@ -1,0 +1,28 @@
+/* ===== Урок «Процесор (CPU)» ===== */
+.cpu-intro { color: #4b453f; margin: 0 0 14px; line-height: 1.5; }
+.cpu-intro .kbd, .pp-hint .kbd { display: inline-block; border: 1.5px solid #1E1B18; border-bottom-width: 3px; border-radius: 6px; padding: 0 6px; font-weight: 700; font-size: .9em; background: #fff; }
+.cpu-hint { font-size: 14px; color: #7a7268; margin-top: 4px; }
+.pp-card { background: #fff; border: 2px solid var(--line); border-radius: 16px; padding: 16px 18px; }
+.pp-head { display: flex; gap: 10px; align-items: center; font-size: 18px; margin-bottom: 12px; }
+.pp-head span { font-size: 28px; }
+.pp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
+.pp-row { display: flex; flex-direction: column; gap: 6px; border: 1.5px solid transparent; border-radius: 12px; padding: 8px; }
+.pp-row.wide { grid-column: 1 / -1; background: #FFF6EA; }
+.pp-row.ok { border-color: var(--ok); background: #F6FCF8; }
+.pp-row.bad { border-color: var(--bad); background: #FFF8F8; }
+.pp-lbl { font-weight: 700; }
+.pp-hint { font-size: 13px; color: #7a7268; }
+.pp-fb:empty { display: none; }
+.pp-fb { font-size: 14px; font-weight: 600; }
+.pp-row.ok .pp-fb { color: #136b3c; }
+.pp-row.bad .pp-fb { color: #9a1f1f; }
+
+/* ===== Урок «Текстовий документ» (9 клас) ===== */
+.tx-fx { display: inline-block; min-width: 46px; text-align: center; padding: 1px 6px; border-radius: 6px; font-weight: 800; font-size: 13px; color: #fff; }
+.tx-fx.txt { background: #6b6259; } .tx-fx.docx { background: #2F7DF6; } .tx-fx.odt { background: #2E9B5B; }
+.tx-fx.rtf { background: #9C27B0; } .tx-fx.pdf { background: #E5322D; } .tx-fx.md { background: #FF9E1B; color: #1E1B18; }
+.tx-legend { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-top: 10px; font-size: 14px; }
+.tx-steps { margin: 0 0 14px; padding-left: 22px; line-height: 1.6; color: #3f3a35; }
+.tx-steps li { margin: 4px 0; }
+.tx-steps .kbd { display: inline-block; border: 1.5px solid #1E1B18; border-bottom-width: 3px; border-radius: 6px; padding: 0 6px; font-weight: 700; font-size: .9em; background: #fff; }
+.pp-row.tx-wide { grid-column: 1 / -1; }

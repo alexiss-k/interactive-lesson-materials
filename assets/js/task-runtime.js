@@ -91,7 +91,8 @@
   const NEEDS_LONG = {
     browser: '🌐 Виконується в браузері',
     illustrator: '🖥 Потрібен Adobe Illustrator',
-    'own-pc': '🔍 Потрібен комп’ютер з Windows: дані з власного ПК'
+    'own-pc': '🔍 Потрібен комп’ютер з Windows: дані з власного ПК',
+    word: '📝 Потрібен Microsoft Word або LibreOffice Writer'
   };
 
   /* ---------- page header from the catalog ---------- */

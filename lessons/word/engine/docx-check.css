@@ -1,0 +1,41 @@
+/* docx-check / docx-starter — scoped under .docx-check */
+.docx-check { color: var(--ink, #1E1B18); max-width: 980px; }
+.docx-check .dc-brief { background: var(--paper, #fff); border: 1px solid var(--line, #E2DCD2); border-radius: 12px; padding: 12px 16px; margin: 0 0 14px; line-height: 1.5; }
+.docx-check .dc-brief ol { margin: 6px 0 0; padding-left: 22px; }
+.docx-check .dc-brief li { margin: 4px 0; }
+.docx-check .dc-brief p { margin: 0; }
+.docx-check .dc-label { font-weight: 700; margin: 4px 0 8px; }
+.docx-check .dc-checks { list-style: none; margin: 0 0 14px; padding: 0; display: grid; gap: 8px; }
+.docx-check .dc-item { display: flex; gap: 12px; align-items: flex-start; background: var(--paper, #fff); border: 1px solid var(--line, #E2DCD2); border-radius: 10px; padding: 10px 14px; }
+.docx-check .dc-item.ok { border-color: var(--ok, #1E9E5A); background: var(--ok-soft, #E3F5EA); }
+.docx-check .dc-item.no { border-color: var(--bad, #D93A3A); background: var(--bad-soft, #FCE7E7); }
+.docx-check .dc-mark { flex: none; width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; font-weight: 800; background: var(--line, #E2DCD2); color: var(--muted, #6E675F); }
+.docx-check .dc-item.ok .dc-mark { background: var(--ok, #1E9E5A); color: #fff; }
+.docx-check .dc-item.no .dc-mark { background: var(--bad, #D93A3A); color: #fff; }
+.docx-check .dc-text { font-weight: 600; }
+.docx-check .dc-hint { margin-top: 4px; font-size: 14px; line-height: 1.45; color: #5b2a2a; }
+.docx-check .dc-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.docx-check .dc-zone { border: 2px dashed var(--line, #E2DCD2); border-radius: 12px; padding: 14px 16px; background: var(--paper, #fff); }
+.docx-check .dc-zone.over { border-color: var(--accent, #FF7A00); background: var(--accent-soft, #FFF0E0); }
+.docx-check .dc-zone-row { margin-top: 10px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.docx-check .dc-input { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+.docx-check .dc-file { margin: 12px 0 6px; overflow-wrap: anywhere; }
+.docx-check .dc-muted { color: var(--muted, #6E675F); }
+.docx-check .dc-meter { height: 10px; border-radius: 6px; background: var(--line, #E2DCD2); overflow: hidden; }
+.docx-check .dc-meter span { display: block; height: 100%; width: 0; background: var(--ok, #1E9E5A); transition: width .3s; }
+.docx-check .dc-note { font-size: 14px; color: var(--muted, #6E675F); margin: 10px 0; }
+.docx-check .dc-actions { margin-top: 8px; }
+.docx-check .dc-status { min-height: 1.4em; font-weight: 600; }
+.docx-check .dc-start { display: flex; justify-content: center; padding: 22px; }
+.docx-check .dc-steps { line-height: 1.6; padding-left: 22px; }
+.docx-check button:focus-visible, .docx-check a:focus-visible { outline: 3px solid var(--accent, #FF7A00); outline-offset: 2px; }
+
+/* formula preview in the task brief */
+.docx-check .dc-eq .eq { font-size: 20px; vertical-align: middle; margin-left: 6px; }
+.docx-check .dc-eq .eq { font-family: "Cambria Math", Cambria, "Times New Roman", serif; font-size: 32px; display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+.docx-check .dc-eq .eq { font-size: 20px; vertical-align: middle; margin-left: 6px; }
+.docx-check .frac { display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; margin: 0 4px; }
+.docx-check .frac > span { padding: 0 6px; line-height: 1.15; }
+.docx-check .frac > span:first-child { border-bottom: 2px solid currentColor; }
+.docx-check .rad > span { border-top: 2px solid currentColor; padding: 0 2px; }
+.docx-check .dc-get { background: #EEF4FF; border: 1px solid #c9dafc; border-radius: 10px; padding: 10px 14px; line-height: 1.6; }
