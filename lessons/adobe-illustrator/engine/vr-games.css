@@ -1,0 +1,58 @@
+/* Games of the section «Вектор і растр». Everything under .vr */
+.vr { font-size: 15px; line-height: 1.4; color: var(--ink, #1E1B18); }
+.vr .hidden { display: none !important; }
+.vr .vr-lead { margin: 0 0 10px; }
+.vr .vr-status { margin: 0; font-weight: 600; }
+.vr .vr-submitrow { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; margin-top: 14px; }
+.vr .vr-result { margin-top: 12px; border-radius: 10px; }
+.vr .vr-result:not(:empty) { padding: 10px 14px; background: #F5F1EA; }
+.vr .vr-result.ok:not(:empty) { background: var(--ok-soft, #E3F5EA); color: #145C35; }
+.vr .vr-result.bad:not(:empty) { background: var(--bad-soft, #FCE7E7); color: #8A1F1F; }
+.vr .vr-rubric { margin: 12px 0 0; font-size: 14px; color: var(--muted, #6E675F); }
+
+/* zoom */
+.vr .vr-zoomrow { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.vr .vr-range { flex: 1 1 160px; max-width: 360px; accent-color: var(--accent, #FF7A00); }
+.vr .vr-zgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 14px; margin-top: 12px; }
+.vr .vr-zcard { background: var(--paper, #fff); border: 2px solid var(--line, #E2DCD2); border-radius: 12px; padding: 10px; text-align: center; }
+.vr .vr-zcard.ok { border-color: var(--ok, #1E9E5A); }
+.vr .vr-zcard.bad { border-color: var(--bad, #D93A3A); }
+.vr .vr-zframe { width: 160px; height: 160px; margin: 0 auto 8px; position: relative; overflow: hidden; border-radius: 8px; background: repeating-conic-gradient(#F2EEE8 0 25%, #fff 0 50%) 0 0 / 16px 16px; }
+.vr .vr-zinner { position: absolute; left: 20px; top: 20px; }
+.vr .vr-zinner > * { display: block; }
+.vr .vr-zinner canvas.pix { image-rendering: pixelated; image-rendering: crisp-edges; width: 120px; height: 120px; }
+.vr .vr-zlabel { font-weight: 600; font-size: 14px; margin-bottom: 6px; }
+.vr .vr-zbtns { display: flex; gap: 6px; justify-content: center; }
+.vr .vr-zans { margin-top: 6px; font-size: 13px; font-weight: 700; min-height: 0; }
+.vr .vr-zcard.ok .vr-zans { color: var(--ok, #1E9E5A); }
+.vr .vr-zcard.bad .vr-zans { color: var(--bad, #D93A3A); }
+
+/* numbers */
+.vr .vr-top { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-bottom: 12px; }
+.vr .vr-tabs { display: flex; gap: 6px; flex-wrap: wrap; flex: 1 1 auto; }
+.vr .vr-tab { display: flex; gap: 6px; align-items: center; padding: 6px 12px; border-radius: 10px; border: 2px solid var(--line, #E2DCD2); background: var(--paper, #fff); cursor: pointer; font: inherit; color: inherit; }
+.vr .vr-tab.done { border-color: #B6E2C6; background: #F3FBF6; }
+.vr .vr-tab.cur { border-color: var(--accent, #FF7A00); box-shadow: 0 0 0 3px var(--accent-soft, #FFF0E0); }
+.vr .vr-tab:focus-visible { outline: 3px solid var(--blue, #2F7DF6); outline-offset: 2px; }
+.vr .vr-total { margin-left: auto; white-space: nowrap; }
+.vr .vr-layout { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(260px, 1fr); gap: 18px; align-items: start; }
+.vr .vr-canvaswrap { background: #EAE4DA; border-radius: 12px; padding: 10px; }
+.vr .vr-canvas { display: block; width: 100%; height: auto; background: #fff; border-radius: 6px; }
+.vr .vr-side h3 { margin: 4px 0 8px; font-size: 20px; }
+.vr .vr-side p { margin: 0 0 10px; }
+.vr .vr-inputs { display: grid; gap: 8px; }
+.vr .vr-numrow { display: grid; grid-template-columns: 54px 1fr 76px; gap: 10px; align-items: center; }
+.vr .vr-numrow code { font-weight: 800; color: var(--accent-ink, #B54F00); font-size: 15px; }
+.vr .vr-numrow input[type=range] { accent-color: var(--accent, #FF7A00); width: 100%; }
+.vr .vr-numrow .vr-swatches { grid-column: 2 / 4; }
+.vr .vr-swatches { display: flex; flex-wrap: wrap; gap: 6px; }
+.vr .vr-sw { width: 30px; height: 30px; border-radius: 7px; border: 2px solid rgba(0,0,0,.15); cursor: pointer; padding: 0; }
+.vr .vr-sw.on { outline: 3px solid var(--ink, #1E1B18); outline-offset: 2px; }
+.vr .vr-sw:focus-visible { outline: 3px solid var(--blue, #2F7DF6); outline-offset: 2px; }
+.vr .vr-code { font-family: Consolas, "Courier New", monospace; background: #1E1B18; color: #F5E9DA; padding: 10px 12px; border-radius: 10px; margin-top: 12px; font-size: 14px; word-break: break-word; }
+.vr .vr-code b { color: #FFB066; }
+.vr .vr-code .v { color: #8FD3FF; }
+@media (max-width: 760px) {
+  .vr .vr-layout { grid-template-columns: minmax(0, 1fr); }
+  .vr .vr-total { margin-left: 0; }
+}

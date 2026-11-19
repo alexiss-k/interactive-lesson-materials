@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Мій перший документ: A4 у CMYK — Adobe Illustrator</title>
+  <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../assets/css/platform.css">
+  <link rel="stylesheet" href="../../assets/css/lesson-kit.css">
+  <link rel="stylesheet" href="../../assets/css/task.css">
+  <link rel="stylesheet" href="engine/ai-file-check.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../../index.html"><span class="ai-logo">Ai</span> Інтерактивні уроки</a>
+  </header>
+  <main class="wrap task-page">
+    <section id="task-head" class="task-head"><h1>Мій перший документ: A4 у CMYK</h1></section>
+    <section id="task-game" class="game-host" aria-label="Практичне завдання">
+      <noscript><p class="err">Для виконання завдання увімкніть JavaScript.</p></noscript>
+    </section>
+    <section id="task-result" class="task-result" hidden aria-live="polite"></section>
+    <nav id="task-nav" class="task-nav" aria-label="Інші завдання"></nav>
+  </main>
+
+  <script src="../../data/catalog.js"></script>
+  <script src="../../assets/js/task-runtime.js"></script>
+  <script src="../../assets/js/lesson-kit.js"></script>
+  <script src="engine/ai-file-analyzer.js"></script>
+  <script src="engine/ai-file-check.js"></script>
+  <script src="engine/summaries.js"></script>
+  <script>
+    TaskRuntime.start({
+  "id": "illustrator-07",
+  "game": "ai-file-check",
+  "data": {
+    "sample": "img/task1-sample.svg",
+    "sampleAlt": "Білий аркуш A4 з помаранчевим прямокутником",
+    "sampleCap": "Зразок: аркуш A4 і одна фігура з заливкою.",
+    "steps": [
+      "Відкрий Illustrator. <span class=\"m\">Файл › Створити…</span> <span class=\"k\">Ctrl+N</span>.",
+      "Угорі вікна обери вкладку <span class=\"m\">Друк</span> <span class=\"en\">(Print)</span> і стиль <span class=\"m\">A4</span>.",
+      "Праворуч перевір: ширина <b>210 мм</b>, висота <b>297 мм</b>, орієнтація <b>книжкова</b> (вертикальна).",
+      "Розгорни <span class=\"m\">Додаткові параметри</span> <span class=\"en\">(Advanced Options)</span> → <span class=\"m\">Колірний режим: Колір CMYK</span> → <span class=\"m\">Створити</span>.",
+      "Глянь на вкладку документа вгорі: у дужках має бути <b>(CMYK/…)</b>.",
+      "Інструмент <span class=\"m\">Прямокутник</span> <span class=\"k\">M</span>: протягни мишею на монтажній області.",
+      "Дай фігурі колір: панель <span class=\"m\">Властивості</span> → <span class=\"m\">Заливка</span> → будь-який колір.",
+      "<span class=\"m\">Файл › Зберегти як…</span> <span class=\"k\">Shift+Ctrl+S</span> → <span class=\"m\">Зберегти на комп’ютері</span> → <b>Тип файлу:</b> <span class=\"m\">Adobe PDF (*.PDF)</span>. Ім’я: <b>01_Прізвище</b> (наприклад, 01_Petrenko) → <span class=\"m\">Зберегти</span> → <span class=\"m\">Зберегти PDF</span>.",
+      "Повернися сюди, натисни «Обрати файл…» нижче й обери свій PDF."
+    ],
+    "spec": {
+      "formats": [
+        "pdf",
+        "ai"
+      ],
+      "prefix": "01_",
+      "illustrator": true,
+      "size": {
+        "w": 210,
+        "h": 297,
+        "unit": "mm"
+      },
+      "orientation": "portrait",
+      "color": "CMYK",
+      "artboards": 1,
+      "minObjects": 1
+    }
+  },
+  "wide": true
+});
+  </script>
+</body>
+</html>
