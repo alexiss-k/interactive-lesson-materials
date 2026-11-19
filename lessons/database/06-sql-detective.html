@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SQL-детектив: стаття Ріти Скітер — Бази даних</title>
+  <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../assets/css/platform.css">
+  <link rel="stylesheet" href="../../assets/css/task.css">
+  <link rel="stylesheet" href="../../assets/css/lesson-kit.css">
+  <link rel="stylesheet" href="engine/sql.css">
+  <link rel="stylesheet" href="engine/hogwarts.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../../index.html"><span class="ai-logo">IL</span> Інтерактивні уроки</a>
+  </header>
+  <main id="view" class="wrap task-page">
+    <section id="task-head" class="task-head"><h1>SQL-детектив: стаття Ріти Скітер</h1></section>
+    <section id="task-game" class="game-host" aria-label="Практичне завдання">
+      <noscript><p class="err">Для виконання завдання увімкніть JavaScript.</p></noscript>
+    </section>
+    <section id="task-result" class="task-result" hidden aria-live="polite"></section>
+    <nav id="task-nav" class="task-nav" aria-label="Інші завдання"></nav>
+  </main>
+
+  <script src="../../data/catalog.js"></script>
+  <script src="../../assets/js/task-runtime.js"></script>
+  <script src="../../assets/js/lesson-kit.js"></script>
+  <script src="engine/mini-sql.js"></script>
+  <script src="engine/table-inspector.js"></script>
+  <script src="engine/sql-lab.js"></script>
+  <script src="engine/summaries.js"></script>
+  <script>
+    TaskRuntime.start({
+  "id": "db-06",
+  "game": "sql-lab",
+  "taskId": "case",
+  "data": {
+    "brief": "<div class=\"hp-game-heading\"><img class=\"hp-icon \" src=\"images/hp/18-magnifier.svg\" alt=\"\" aria-hidden=\"true\" width=\"64\" height=\"64\"><div><strong>Турнір SQL-детективів<\/strong><span>Перевіряй твердження за даними<\/span><\/div><\/div>Ріта Скітер написала для «Щоденного віщуна» статтю про перші два завдання Тричаклунського турніру. Таблиця <b>trials<\/b> зберігає, що насправді дісталося кожному чемпіонові. Знайди правду запитами!",
+    "db": {
+      "tables": [
+        {
+          "name": "trials",
+          "columns": [
+            {
+              "name": "id",
+              "type": "INTEGER",
+              "desc": "номер запису (первинний ключ)"
+            },
+            {
+              "name": "task_no",
+              "type": "INTEGER",
+              "desc": "завдання: 1 — дракони, 2 — озеро"
+            },
+            {
+              "name": "task_date",
+              "type": "TEXT",
+              "desc": "дата завдання, РРРР-ММ-ДД"
+            },
+            {
+              "name": "champion",
+              "type": "TEXT",
+              "desc": "чемпіон"
+            },
+            {
+              "name": "school",
+              "type": "TEXT",
+              "desc": "школа чемпіона"
+            },
+            {
+              "name": "challenge",
+              "type": "TEXT",
+              "desc": "дракон (1) або кого рятували з озера (2)"
+            }
+          ],
+          "rows": [
+            [
+              1,
+              1,
+              "1994-11-24",
+              "Cedric Diggory",
+              "Hogwarts",
+              "Swedish Short-Snout"
+            ],
+            [
+              2,
+              1,
+              "1994-11-24",
+              "Fleur Delacour",
+              "Beauxbatons",
+              "Common Welsh Green"
+            ],
+            [
+              3,
+              1,
+              "1994-11-24",
+              "Viktor Krum",
+              "Durmstrang",
+              "Chinese Fireball"
+            ],
+            [
+              4,
+              1,
+              "1994-11-24",
+              "Harry Potter",
+              "Hogwarts",
+              "Hungarian Horntail"
+            ],
+            [
+              5,
+              2,
+              "1995-02-24",
+              "Cedric Diggory",
+              "Hogwarts",
+              "Cho Chang"
+            ],
+            [
+              6,
+              2,
+              "1995-02-24",
+              "Fleur Delacour",
+              "Beauxbatons",
+              "Gabrielle Delacour"
+            ],
+            [
+              7,
+              2,
+              "1995-02-24",
+              "Viktor Krum",
+              "Durmstrang",
+              "Hermione Granger"
+            ],
+            [
+              8,
+              2,
+              "1995-02-24",
+              "Harry Potter",
+              "Hogwarts",
+              "Ron Weasley"
+            ]
+          ]
+        }
+      ]
+    },
+    "glossary": [
+      [
+        "Hogwarts",
+        "Гоґвортс"
+      ],
+      [
+        "Beauxbatons",
+        "Бобатон"
+      ],
+      [
+        "Durmstrang",
+        "Дурмстранг"
+      ],
+      [
+        "Swedish Short-Snout",
+        "шведський короткорилий"
+      ],
+      [
+        "Common Welsh Green",
+        "валлійський зелений"
+      ],
+      [
+        "Chinese Fireball",
+        "китайська вогнекулька"
+      ],
+      [
+        "Hungarian Horntail",
+        "угорська рогохвістка"
+      ]
+    ],
+    "levels": [
+      {
+        "id": "d1",
+        "text": "Ріта пише: «У першому завданні Гаррі дістався валлійський зелений дракон». Перевір: виведи лише challenge для Harry Potter у першому завданні (task_no = 1).",
+        "hint": "Дві умови поєднує AND: champion = 'Harry Potter' AND task_no = 1.",
+        "solution": "SELECT challenge FROM trials WHERE champion = 'Harry Potter' AND task_no = 1"
+      },
+      {
+        "id": "d2",
+        "text": "Ріта пише: «Віктор Крум рятував з озера Флер». Виведи champion і challenge для всіх записів другого завдання.",
+        "hint": "Друге завдання — task_no = 2.",
+        "solution": "SELECT champion, challenge FROM trials WHERE task_no = 2"
+      },
+      {
+        "id": "d3",
+        "text": "Ріта переплутала драконів. Виведи champion і challenge першого завдання, упорядкувавши за назвою дракона (challenge) від A до Z.",
+        "hint": "ORDER BY challenge — за зростанням (ASC можна не писати).",
+        "solution": "SELECT champion, challenge FROM trials WHERE task_no = 1 ORDER BY challenge",
+        "ordered": true
+      },
+      {
+        "id": "d4",
+        "text": "Ріта пише: «Гості з інших шкіл рятували з озера своїх директорів». Виведи champion, school і challenge для чемпіонів НЕ з Гоґвортсу (Hogwarts) у другому завданні.",
+        "hint": "«Не дорівнює» в SQL записують як <>.",
+        "solution": "SELECT champion, school, challenge FROM trials WHERE school <> 'Hogwarts' AND task_no = 2"
+      }
+    ]
+  },
+  "wide": true
+});
+  </script>
+</body>
+</html>

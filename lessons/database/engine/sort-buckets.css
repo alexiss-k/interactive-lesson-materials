@@ -1,0 +1,18 @@
+/* lk-sort styles (scoped under .lk-sort) */
+.lk-sort { color: var(--ink, #1E1B18); }
+.lk-sort .lk-sort-help { color: var(--muted, #6E675F); margin: 0 0 10px; }
+.lk-sort .lk-label { font-weight: 700; margin: 10px 0 6px; }
+.lk-sort .lk-zone { display: flex; flex-wrap: wrap; gap: 8px; min-height: 64px; padding: 10px; border: 2px dashed var(--line, #E2DCD2); border-radius: 12px; background: var(--paper, #fff); }
+.lk-sort .lk-zone:focus-visible, .lk-sort .lk-card:focus-visible { outline: 3px solid var(--accent, #FF7A00); outline-offset: 2px; }
+.lk-sort .lk-zone.hot { border-color: var(--accent, #FF7A00); background: var(--accent-soft, #FFF0E0); }
+.lk-sort .lk-buckets { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.lk-sort .lk-bucket { min-height: 120px; align-content: flex-start; }
+.lk-sort .lk-card { padding: 8px 12px; border: 1px solid #cfc6ba; border-radius: 10px; background: #fff; cursor: grab; max-width: 100%; overflow-wrap: anywhere; touch-action: none; }
+.lk-sort .lk-card.sel { border-color: var(--accent, #FF7A00); box-shadow: 0 0 0 2px var(--accent, #FF7A00); }
+.lk-sort .lk-card.right { border-color: var(--ok, #1E9E5A); background: var(--ok-soft, #E3F5EA); cursor: default; }
+.lk-sort .lk-card.wrong { border-color: var(--bad, #D93A3A); background: var(--bad-soft, #FCE7E7); cursor: default; }
+.lk-sort .lk-why { font-size: 14px; margin-top: 4px; }
+.lk-sort .lk-empty { color: var(--muted, #6E675F); font-size: 14px; align-self: center; }
+.lk-sort .lk-sort-actions { margin-top: 14px; }
+.lk-sort .lk-sort-result:not(:empty) { margin-top: 10px; padding: 10px 14px; border-radius: 10px; background: #f5f1ea; }
+.lk-sort code { font-family: Consolas, "Courier New", monospace; }

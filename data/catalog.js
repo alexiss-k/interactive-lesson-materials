@@ -10,7 +10,8 @@
      tags      — масив id тегів із `tags`
      level     — 1 початковий · 2 середній · 3 складний
      needs     — 'browser' (усе в браузері), 'illustrator' (робота в програмі + перевірка файлу)
-                 'word' (робота в текстовому редакторі) або 'own-pc' (учень досліджує свій комп’ютер з Windows)
+                 'word' (робота в текстовому редакторі), 'access' (робота в Microsoft Access)
+                 або 'own-pc' (учень досліджує свій комп’ютер з Windows)
      duration  — орієнтовний час */
 window.CATALOG = {
   folders: [
@@ -37,6 +38,12 @@ window.CATALOG = {
       title: 'Текстові документи (Word)',
       icon: 'W',
       description: 'Опрацювання текстів: системи й об’єкти документа, формати файлів, режими перегляду, колонтитули, стовпці й розділи, багаторівневі списки, символи й формули.'
+    },
+    {
+      id: 'database',
+      title: 'Бази даних (SQL, Access)',
+      icon: 'DB',
+      description: 'Основні поняття баз даних, перші SQL-запити SELECT … WHERE, таблиці й типи даних в Access, ключі, зв’язки та імпорт з Excel.'
     }
   ],
 
@@ -88,7 +95,14 @@ window.CATALOG = {
     'columns-sections': 'стовпці й розділи',
     'lists': 'списки',
     'symbols-formulas': 'символи й формули',
-    'word-app': 'робота у Word'
+    'word-app': 'робота у Word',
+    'db-basics': 'основні поняття БД',
+    'sql': 'SQL',
+    'select': 'SELECT … WHERE',
+    'data-types': 'типи даних',
+    'keys-relations': 'ключі й зв’язки',
+    'import': 'імпорт з Excel',
+    'access-app': 'робота в Access'
   },
 
   items: [
@@ -469,6 +483,48 @@ window.CATALOG = {
       summary: 'Заміни слова символами (°, π, ≈, €…), додай верхні й нижні індекси (H₂O, м²) і дві формули через «Рівняння». Сторінка перевірить збережений DOCX.',
       file: 'lessons/word/09-symbols-formulas.html',
       tags: ['symbols-formulas', 'word-app'], level: 3, needs: 'word', duration: '20 хв'
+    },
+    {
+      id: 'db-01', folder: 'database', order: 1,
+      title: 'Інспектор таблиці',
+      summary: 'Вісім завдань у таблиці про персонажів: познач поле, запис або значення, знайди первинний ключ. Правильно з першої спроби — 1 бал, з другої — ½.',
+      file: 'lessons/database/01-table-inspector.html',
+      tags: ['db-basics'], level: 1, needs: 'browser', duration: '10 хв'
+    },
+    {
+      id: 'db-02', folder: 'database', order: 2,
+      title: 'Підбери тип даних',
+      summary: 'Для кожного поля подивись на приклади значень з Excel і обери тип даних Access, а для «Числа» ще й розмір. Деякі поля не варто зберігати в базі.',
+      file: 'lessons/database/02-pick-data-type.html',
+      tags: ['data-types', 'quiz'], level: 2, needs: 'browser', duration: '10 хв'
+    },
+    {
+      id: 'db-03', folder: 'database', order: 3,
+      title: 'Чи пропустить Access?',
+      summary: 'База «Школа» з ключами й зв’язком Класи → Учні із забезпеченням цілісності даних. Розклади ситуації: що Access дозволить, а що відхилить.',
+      file: 'lessons/database/03-will-access-allow.html',
+      tags: ['keys-relations', 'quiz'], level: 2, needs: 'browser', duration: '7 хв'
+    },
+    {
+      id: 'db-04', folder: 'database', order: 4,
+      title: 'Тренажер SQL: персонажі «Келиха вогню»',
+      summary: 'Шість запитів SELECT від простого до складного: стовпці, умови WHERE, AND, сортування ORDER BY. Пиши запит, натискай «Виконати» й порівнюй результат із правильним.',
+      file: 'lessons/database/04-sql-trainer.html',
+      tags: ['sql', 'select'], level: 2, needs: 'browser', duration: '20 хв'
+    },
+    {
+      id: 'db-05', folder: 'database', order: 5,
+      title: 'Лабораторія Access',
+      summary: 'Сім кроків у Microsoft Access: первинні ключі, зв’язок із цілісністю даних, імпорт класів і учнів з Excel. Після кожного кроку — контрольне запитання про твою базу.',
+      file: 'lessons/database/05-access-lab.html',
+      tags: ['access-app', 'keys-relations', 'import', 'data-types'], level: 3, needs: 'access', duration: '30 хв'
+    },
+    {
+      id: 'db-06', folder: 'database', order: 6,
+      title: 'SQL-детектив: стаття Ріти Скітер',
+      summary: 'Чотири твердження з газети. Для кожного напиши запит до таблиці trials, який покаже правду.',
+      file: 'lessons/database/06-sql-detective.html',
+      tags: ['sql', 'select'], level: 3, needs: 'browser', duration: '20 хв'
     }
   ]
 };

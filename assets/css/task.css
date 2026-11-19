@@ -93,3 +93,4 @@ a.tag:hover { border-color: var(--accent); color: var(--accent-ink); }
 .res-list code { font-family: Consolas, "Courier New", monospace; overflow-wrap: anywhere; }
 @media (max-width: 760px) { .res-code { grid-template-columns: 1fr; } }
 @media print { .res-level .btn, .res-block .btn { display: none !important; } }
+.res-sql { margin: 4px 0 0; background: #1e1b18; color: #f4f0e9; border-radius: 8px; padding: 6px 10px; font-size: 13px; white-space: pre-wrap; overflow-wrap: anywhere; }
