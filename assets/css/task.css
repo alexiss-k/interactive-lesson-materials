@@ -83,3 +83,13 @@ a.tag:hover { border-color: var(--accent); color: var(--accent-ink); }
   .task-result { box-shadow: none; border: 1px solid #ccc; }
   .res-ring { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }
+
+/* HTML previews in the result panel */
+.res-pages { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
+.res-frame { width: 100%; height: 220px; border: 0; border-bottom: 1px solid var(--line); background: #fff; display: block; }
+.res-code { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.res-code .res-frame { height: 360px; border: 1px solid var(--line); border-radius: 10px; }
+.res-code pre { margin: 0; max-height: 360px; overflow: auto; background: #1e1b18; color: #f4f0e9; border-radius: 10px; padding: 12px 14px; font-size: 13px; white-space: pre-wrap; overflow-wrap: anywhere; }
+.res-list code { font-family: Consolas, "Courier New", monospace; overflow-wrap: anywhere; }
+@media (max-width: 760px) { .res-code { grid-template-columns: 1fr; } }
+@media print { .res-level .btn, .res-block .btn { display: none !important; } }

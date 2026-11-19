@@ -1,0 +1,97 @@
+/* ===== HTML-практика ===== */
+.hp { color: #9C8F80; } .ht { color: #FF8A4C; font-weight: 700; } .ha { color: #8FD3FF; } .hs { color: #B8E986; } .hd { color: #C9A0FF; } .hc { color: #8a8076; font-style: italic; }
+.sp { color: #6c625a; }
+
+.ret-banner { background: #FFF3E0; border: 2px solid #FFB870; color: #8a4b00; border-radius: 12px; padding: 12px 16px; margin-bottom: 14px; }
+.g-result.mid:not(:empty) { background: #FFF6E5; color: #7a4a00; }
+
+/* --- Правильний тег чи помилка --- */
+.ts-label { font-weight: 800; font-size: 13px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); margin: 10px 0 6px; }
+.ts-label.ok { color: #136b3c; } .ts-label.bad { color: #9a1f1f; }
+.ts-zone { display: flex; flex-wrap: wrap; gap: 10px; align-content: flex-start; padding: 12px; border-radius: 12px; min-height: 76px; transition: background .12s, border-color .12s; }
+.ts-pool { background: #F2EDE5; border: 2px dashed #D6CBBB; }
+.ts-buckets { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.ts-bucket { min-height: 160px; cursor: pointer; }
+.ts-bucket.ok { background: #F1FAF4; border: 2px dashed #9fd8b6; }
+.ts-bucket.bad { background: #FDF2F2; border: 2px dashed #f0b3b3; }
+.ts-zone.hot { border-style: solid; filter: brightness(.97); box-shadow: inset 0 0 0 2px var(--accent); }
+.ts-card { background: #1E1B18; color: #fff; border-radius: 10px; padding: 10px 14px; cursor: grab; user-select: none; touch-action: none; box-shadow: 0 2px 4px rgba(0,0,0,.15); max-width: 260px; }
+.ts-card code { font-family: Consolas, "Courier New", monospace; font-size: 20px; font-weight: 700; color: #FFB27A; }
+.ts-card.sel { outline: 3px solid var(--accent); outline-offset: 2px; }
+.ts-card.right { background: #E3F5EA; border: 2px solid var(--ok); cursor: default; }
+.ts-card.wrong { background: #FCE7E7; border: 2px solid var(--bad); cursor: default; }
+.ts-card.right code, .ts-card.wrong code { color: #1E1B18; }
+.ts-card .why { font-size: 13px; color: #333; margin-top: 4px; }
+.ts-empty { color: var(--muted); font-size: 14px; padding: 8px; }
+.ts-empty.big { font-size: 16px; padding: 30px 10px; text-align: center; width: 100%; color: #9c8f80; }
+
+/* --- Конструктор з блоків --- */
+.hb-grid { display: grid; grid-template-columns: minmax(230px, .8fr) minmax(320px, 1.25fr) minmax(320px, 1.1fr); gap: 16px; align-items: start; }
+.hb-col { min-width: 0; }
+.hb-h { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); margin-bottom: 8px; min-height: 26px; }
+.hb-pal { display: flex; flex-direction: column; gap: 8px; background: #F2EDE5; border: 2px dashed #D6CBBB; border-radius: 12px; padding: 10px; min-height: 120px; }
+.hb-pal.hot { border-color: var(--bad); background: #FDF2F2; }
+.hblk { background: #1E1B18; color: #EDE6DC; font-family: Consolas, "Courier New", monospace; font-size: 15px; padding: 8px 12px; border-radius: 8px; cursor: grab; user-select: none; touch-action: none; white-space: pre; overflow: hidden; text-overflow: ellipsis; box-shadow: 0 2px 3px rgba(0,0,0,.18); }
+.hblk:hover { outline: 2px solid var(--accent); }
+.hb-ws { background: #1E1B18; border-radius: 12px; padding: 10px 0; min-height: 260px; transition: box-shadow .12s; }
+.hb-ws.hot { box-shadow: 0 0 0 3px var(--accent); }
+.hb-ws.inline { display: flex; flex-wrap: wrap; gap: 6px; align-content: flex-start; padding: 14px; min-height: 140px; }
+.hrow { display: flex; align-items: center; gap: 8px; font-family: Consolas, "Courier New", monospace; font-size: 15px; color: #EDE6DC; padding: 4px 10px 4px 0; cursor: grab; user-select: none; touch-action: none; border-left: 3px solid transparent; }
+.hrow:hover { background: rgba(255,255,255,.05); border-left-color: var(--accent); }
+.hrow .ln { width: 30px; text-align: right; color: #6c625a; flex: none; font-size: 13px; }
+.hrow .cd { flex: 1; white-space: pre; overflow: hidden; text-overflow: ellipsis; }
+.hrow.fixed { cursor: default; opacity: .8; }
+.hrow.fixed:hover { background: none; border-left-color: transparent; }
+.hrow .lock { font-size: 12px; opacity: .6; }
+.hrow.ph, .hchip.ph { opacity: .45; outline: 2px dashed var(--accent); outline-offset: -2px; border-radius: 6px; }
+.hchip { display: inline-flex; align-items: center; gap: 4px; background: #34302C; color: #EDE6DC; font-family: Consolas, "Courier New", monospace; font-size: 16px; padding: 7px 8px 7px 10px; border-radius: 8px; cursor: grab; user-select: none; touch-action: none; white-space: pre; }
+.hchip:hover { outline: 2px solid var(--accent); }
+.x { border: none; background: none; color: #8a8076; font-size: 17px; line-height: 1; cursor: pointer; padding: 0 4px; border-radius: 4px; }
+.x:hover { color: #fff; background: var(--bad); }
+.drag-ghost { position: fixed; z-index: 3000; pointer-events: none; opacity: .92; transform: rotate(-1.5deg); box-shadow: 0 10px 26px rgba(0,0,0,.35); }
+.dragging-src { opacity: .3; }
+body.is-dragging, body.is-dragging * { cursor: grabbing !important; }
+
+/* Вікно браузера з результатом */
+.hbw { border-radius: 10px; overflow: hidden; background: #fff; border: 1px solid #d9d1c5; box-shadow: 0 3px 12px rgba(0,0,0,.1); }
+.hbw .bw-top { background: #DEE1E6; display: flex; align-items: flex-end; gap: 10px; padding: 6px 10px 0; height: 34px; }
+.hbw .bw-dots i { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #ff5f57; margin-right: 5px; margin-bottom: 10px; }
+.hbw .bw-dots i:nth-child(2) { background: #febc2e; } .hbw .bw-dots i:nth-child(3) { background: #28c840; }
+.hbw .bw-tab { background: #fff; border-radius: 8px 8px 0 0; padding: 5px 14px; font-size: 13px; max-width: 70%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #222; }
+.hbw .bw-tab.empty { color: #999; font-style: italic; }
+.hbw .bw-url { font-size: 12px; color: #777; padding: 5px 12px; border-bottom: 1px solid #eee; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.hbw iframe { display: block; width: 100%; height: 240px; border: 0; background: #fff; }
+
+.checklist.live li { display: flex; gap: 8px; align-items: flex-start; padding: 3px 0; font-size: 14px; }
+.checklist.live li .mk { width: 18px; flex: none; font-weight: 800; }
+.checklist.live li.todo { color: #6b6259; }
+.checklist.live li.todo .mk { color: #b9ad9d; }
+.checklist.live code, .cf-list code { font-family: Consolas, monospace; background: #F1ECE4; padding: 0 4px; border-radius: 4px; font-size: 13px; }
+.hb-errs { margin-top: 10px; }
+.err-line { background: #FDF0F0; border-left: 3px solid var(--bad); color: #8a1f1f; font-size: 13px; padding: 5px 8px; border-radius: 4px; margin-bottom: 5px; }
+.err-line.clickable { cursor: pointer; }
+.err-line.clickable:hover { background: #fbe1e1; }
+
+/* --- Редактор --- */
+.ed-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(320px, 1fr); gap: 18px; align-items: start; }
+.ed { display: flex; background: #1E1B18; border-radius: 12px; overflow: hidden; height: 520px; }
+.ed-gut { width: 44px; flex: none; background: #262220; color: #6c625a; font-family: Consolas, "Courier New", monospace; font-size: 15px; line-height: 22px; text-align: right; padding: 12px 8px 12px 0; overflow: hidden; user-select: none; }
+.ed-gut div { height: 22px; overflow: hidden; }
+.ed-gut div.err { color: #fff; background: var(--bad); border-radius: 3px 0 0 3px; margin-right: -8px; padding-right: 8px; }
+.ed-ta { flex: 1; resize: none; border: none; outline: none; background: transparent; color: #F2EBE2; caret-color: #FF8A4C; font-family: Consolas, "Courier New", monospace; font-size: 15px; line-height: 22px; padding: 12px 14px; white-space: pre; overflow: auto; tab-size: 2; }
+.ed-ta::placeholder { color: #6c625a; }
+.ed.ro { opacity: .85; }
+.ed.ro .ed-ta { cursor: default; }
+.ed-grid .hbw iframe { height: 300px; }
+.cheat { margin-top: 10px; background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 8px 12px; }
+.cheat summary { cursor: pointer; font-weight: 700; }
+.cheat-body { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.cheat-body code { background: #1E1B18; color: #EDE6DC; border-radius: 6px; padding: 3px 8px; font-family: Consolas, monospace; font-size: 13px; }
+
+@media (max-width: 1150px) {
+  .hb-grid { grid-template-columns: 1fr 1fr; }
+  .hb-grid > .hb-col:last-child { grid-column: 1 / -1; }
+}
+@media (max-width: 800px) {
+  .hb-grid, .ed-grid, .ts-buckets { grid-template-columns: 1fr; }
+}
