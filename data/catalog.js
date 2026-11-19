@@ -10,7 +10,7 @@
      tags      — масив id тегів із `tags`
      level     — 1 початковий · 2 середній · 3 складний
      needs     — 'browser' (усе в браузері), 'illustrator' (робота в програмі + перевірка файлу)
-                 або 'own-pc' (учень досліджує свій комп’ютер з Windows)
+                 'word' (робота в текстовому редакторі) або 'own-pc' (учень досліджує свій комп’ютер з Windows)
      duration  — орієнтовний час */
 window.CATALOG = {
   folders: [
@@ -31,6 +31,12 @@ window.CATALOG = {
       title: 'Архітектура ПК',
       icon: 'PC',
       description: 'Будова комп’ютера: типи ПК, процесор, оперативна пам’ять, накопичувачі, материнська плата, блок живлення, відеокарта, складання й діагностика.'
+    },
+    {
+      id: 'word',
+      title: 'Текстові документи (Word)',
+      icon: 'W',
+      description: 'Опрацювання текстів: системи й об’єкти документа, формати файлів, режими перегляду, колонтитули, стовпці й розділи, багаторівневі списки, символи й формули.'
     }
   ],
 
@@ -73,7 +79,16 @@ window.CATALOG = {
     'compatibility': 'сумісність',
     'my-pc': 'мій комп’ютер',
     'simulator': 'симулятор',
-    'calculation': 'розрахунки'
+    'calculation': 'розрахунки',
+    'text-systems': 'системи опрацювання текстів',
+    'doc-objects': 'об’єкти документа',
+    'file-formats': 'формати файлів',
+    'views': 'режими перегляду',
+    'headers-footers': 'колонтитули',
+    'columns-sections': 'стовпці й розділи',
+    'lists': 'списки',
+    'symbols-formulas': 'символи й формули',
+    'word-app': 'робота у Word'
   },
 
   items: [
@@ -391,6 +406,69 @@ window.CATALOG = {
       summary: 'Підбери плату, процесор, пам’ять, відеокарту, блок живлення й корпус для трьох клієнтів. Перша вдала перевірка — 100 %, друга — 75 %, далі — 50 %.',
       file: 'lessons/pc-architecture/16-build-pc-to-order.html',
       tags: ['pc-assembly', 'compatibility', 'motherboard', 'cpu', 'ram', 'gpu', 'psu'], level: 3, needs: 'browser', duration: '30 хв'
+    },
+    {
+      id: 'word-01', folder: 'word', order: 1,
+      title: 'Яка програма впорається?',
+      summary: 'Для кожної задачі обери вид системи опрацювання текстів: текстовий редактор, текстовий процесор, система для наукових документів, видавнича система тощо.',
+      file: 'lessons/word/01-which-program.html',
+      tags: ['text-systems', 'quiz'], level: 1, needs: 'browser', duration: '5 хв'
+    },
+    {
+      id: 'word-02', folder: 'word', order: 2,
+      title: 'Чия це властивість?',
+      summary: 'Визнач, якому об’єкту документа належить кожна властивість: символу, абзацу, сторінці, малюнку чи таблиці.',
+      file: 'lessons/word/02-whose-property.html',
+      tags: ['doc-objects', 'quiz'], level: 1, needs: 'browser', duration: '7 хв'
+    },
+    {
+      id: 'word-03', folder: 'word', order: 3,
+      title: 'Який формат обрати?',
+      summary: 'Для кожної життєвої ситуації обери найкращий формат файлу: TXT, DOCX, ODT, RTF, PDF чи MD.',
+      file: 'lessons/word/03-which-format.html',
+      tags: ['file-formats', 'quiz'], level: 1, needs: 'browser', duration: '7 хв'
+    },
+    {
+      id: 'word-04', folder: 'word', order: 4,
+      title: 'Обери режим',
+      summary: 'Для кожної ситуації обери зручний режим перегляду документа або спосіб роботи з кількома вікнами.',
+      file: 'lessons/word/04-choose-view.html',
+      tags: ['views', 'quiz'], level: 2, needs: 'browser', duration: '7 хв'
+    },
+    {
+      id: 'word-05', folder: 'word', order: 5,
+      title: 'Лабораторія форматів',
+      summary: 'Збережи зразок газети в п’яти форматах, порівняй розміри файлів і зроби висновки. Сторінка перевірить відповіді.',
+      file: 'lessons/word/05-formats-lab.html',
+      tags: ['file-formats', 'word-app'], level: 2, needs: 'word', duration: '15 хв'
+    },
+    {
+      id: 'word-06', folder: 'word', order: 6,
+      title: 'Колонтитули',
+      summary: 'У документі «Науковий вісник» додай верхній колонтитул, номери сторінок, дату й особливий колонтитул першої сторінки. Сторінка сама перевірить збережений DOCX.',
+      file: 'lessons/word/06-headers-footers.html',
+      tags: ['headers-footers', 'word-app'], level: 2, needs: 'word', duration: '15 хв'
+    },
+    {
+      id: 'word-07', folder: 'word', order: 7,
+      title: 'Стовпці й розділи',
+      summary: 'Розбий статтю на два стовпці з роздільником, додай розриви розділів, альбомну сторінку для таблиці й окремий колонтитул для неї. Сторінка перевірить збережений DOCX.',
+      file: 'lessons/word/07-columns-sections.html',
+      tags: ['columns-sections', 'word-app'], level: 3, needs: 'word', duration: '15 хв'
+    },
+    {
+      id: 'word-08', folder: 'word', order: 8,
+      title: 'Багаторівневий список',
+      summary: 'Перетвори план вісника на багаторівневий список «1. / 1.1. / 1.1.1.». Сторінка перевірить збережений DOCX.',
+      file: 'lessons/word/08-multilevel-list.html',
+      tags: ['lists', 'word-app'], level: 3, needs: 'word', duration: '15 хв'
+    },
+    {
+      id: 'word-09', folder: 'word', order: 9,
+      title: 'Символи, індекси й формули',
+      summary: 'Заміни слова символами (°, π, ≈, €…), додай верхні й нижні індекси (H₂O, м²) і дві формули через «Рівняння». Сторінка перевірить збережений DOCX.',
+      file: 'lessons/word/09-symbols-formulas.html',
+      tags: ['symbols-formulas', 'word-app'], level: 3, needs: 'word', duration: '20 хв'
     }
   ]
 };
