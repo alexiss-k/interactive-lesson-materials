@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Чи пропустить Access? — Бази даних</title>
+  <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../assets/css/platform.css">
+  <link rel="stylesheet" href="../../assets/css/task.css">
+  <link rel="stylesheet" href="../../assets/css/lesson-kit.css">
+  <link rel="stylesheet" href="engine/sort-buckets.css">
+  <link rel="stylesheet" href="engine/access.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../../index.html"><span class="ai-logo">IL</span> Інтерактивні уроки</a>
+  </header>
+  <main id="view" class="wrap task-page">
+    <section id="task-head" class="task-head"><h1>Чи пропустить Access?</h1></section>
+    <section id="task-game" class="game-host" aria-label="Практичне завдання">
+      <noscript><p class="err">Для виконання завдання увімкніть JavaScript.</p></noscript>
+    </section>
+    <section id="task-result" class="task-result" hidden aria-live="polite"></section>
+    <nav id="task-nav" class="task-nav" aria-label="Інші завдання"></nav>
+  </main>
+
+  <script src="../../data/catalog.js"></script>
+  <script src="../../assets/js/task-runtime.js"></script>
+  <script src="../../assets/js/lesson-kit.js"></script>
+  <script src="engine/sort-buckets.js"></script>
+  <script src="engine/type-picker.js"></script>
+  <script src="engine/access-lab.js"></script>
+  <script src="engine/summaries.js"></script>
+  <script>
+    TaskRuntime.start({
+  "id": "db-03",
+  "game": "lk-sort",
+  "taskId": "verdict",
+  "data": {
+    "hint": "У таблиці «Класи» вже є 10-А, 10-Б, 11-А, 11-Б; у кожному класі є учні.",
+    "buckets": [
+      {
+        "id": "allow",
+        "label": "✓ Access дозволить"
+      },
+      {
+        "id": "deny",
+        "label": "✗ Access відхилить"
+      }
+    ],
+    "items": [
+      {
+        "id": "v1",
+        "text": "Додати в «Учні» нового учня з класом «10-А»",
+        "bucket": "allow",
+        "why": "Клас 10-А є в таблиці «Класи» — посилання правильне."
+      },
+      {
+        "id": "v2",
+        "text": "Додати в «Учні» учня з класом «10-В»",
+        "bucket": "deny",
+        "why": "Класу 10-В немає в таблиці «Класи» — це порушення цілісності даних."
+      },
+      {
+        "id": "v3",
+        "text": "Видалити клас «11-Б», у якому є учні",
+        "bucket": "deny",
+        "why": "Учні 11-Б залишилися б без класу. Без «Каскадного видалення» Access цього не дозволить."
+      },
+      {
+        "id": "v4",
+        "text": "Додати в «Класи» ще один запис «10-А»",
+        "bucket": "deny",
+        "why": "Клас — первинний ключ, значення не можуть повторюватися («Порушення ключа»)."
+      },
+      {
+        "id": "v5",
+        "text": "Імпортувати аркуш «Учні», поки таблиця «Класи» ще порожня",
+        "bucket": "deny",
+        "why": "Кожен учень посилався б на неіснуючий клас — Access не імпортує ці записи. Спочатку імпортуй «Класи»."
+      },
+      {
+        "id": "v6",
+        "text": "Створити зв’язок між полем «Автонумерація» і полем «Число» (Довге ціле число) з цілісністю даних",
+        "bucket": "allow",
+        "why": "Це єдиний дозволений виняток: автонумерація зберігається як довге ціле число."
+      },
+      {
+        "id": "v7",
+        "text": "Створити зв’язок між «Клас» (Короткий текст) і полем «Клас» типу «Число» з цілісністю даних",
+        "bucket": "deny",
+        "why": "Пов’язані поля мають бути одного типу: текст «10-А» не може дорівнювати числу."
+      },
+      {
+        "id": "v8",
+        "text": "Імпортувати аркуш, де стовпець називається «Дата народження» (з пробілом), у поле ДатаНародження",
+        "bucket": "deny",
+        "why": "Під час додавання до наявної таблиці назви мають збігатися точно — поля «Дата народження» з пробілом немає."
+      },
+      {
+        "id": "v9",
+        "text": "Імпортувати аркуш «Учні», у якому стовпці стоять в іншому порядку, ніж поля в таблиці",
+        "bucket": "allow",
+        "why": "Якщо перший рядок містить заголовки, Access зіставляє стовпці за назвами, а не за порядком."
+      },
+      {
+        "id": "v10",
+        "text": "Ще раз імпортувати той самий аркуш «Класи»",
+        "bucket": "deny",
+        "why": "Класи 10-А…11-Б уже є, тож повтор дасть «Порушення ключа»."
+      }
+    ]
+  }
+});
+  </script>
+</body>
+</html>

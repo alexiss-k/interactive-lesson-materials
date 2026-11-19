@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Тренажер SQL: персонажі «Келиха вогню» — Бази даних</title>
+  <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../assets/css/platform.css">
+  <link rel="stylesheet" href="../../assets/css/task.css">
+  <link rel="stylesheet" href="../../assets/css/lesson-kit.css">
+  <link rel="stylesheet" href="engine/sql.css">
+  <link rel="stylesheet" href="engine/hogwarts.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../../index.html"><span class="ai-logo">IL</span> Інтерактивні уроки</a>
+  </header>
+  <main id="view" class="wrap task-page">
+    <section id="task-head" class="task-head"><h1>Тренажер SQL: персонажі «Келиха вогню»</h1></section>
+    <section id="task-game" class="game-host" aria-label="Практичне завдання">
+      <noscript><p class="err">Для виконання завдання увімкніть JavaScript.</p></noscript>
+    </section>
+    <section id="task-result" class="task-result" hidden aria-live="polite"></section>
+    <nav id="task-nav" class="task-nav" aria-label="Інші завдання"></nav>
+  </main>
+
+  <script src="../../data/catalog.js"></script>
+  <script src="../../assets/js/task-runtime.js"></script>
+  <script src="../../assets/js/lesson-kit.js"></script>
+  <script src="engine/mini-sql.js"></script>
+  <script src="engine/table-inspector.js"></script>
+  <script src="engine/sql-lab.js"></script>
+  <script src="engine/summaries.js"></script>
+  <script>
+    TaskRuntime.start({
+  "id": "db-04",
+  "game": "sql-lab",
+  "taskId": "lab",
+  "data": {
+    "brief": "<div class=\"hp-game-heading\"><img class=\"hp-icon \" src=\"images/hp/07-wand.svg\" alt=\"\" aria-hidden=\"true\" width=\"64\" height=\"64\"><div><strong>Майстерня запитів<\/strong><span>Складай запити. Досліджуй результат.<\/span><\/div><\/div>База даних містить таблицю <b>characters<\/b> — персонажів історії «Гаррі Поттер і Келих вогню». Її стовпці й словничок назв — у панелі «Таблиця characters». Помилився(-лася)? Тренажер пояснить, що не так.",
+    "db": {
+      "tables": [
+        {
+          "name": "characters",
+          "columns": [
+            {
+              "name": "id",
+              "type": "INTEGER",
+              "desc": "номер запису (первинний ключ)"
+            },
+            {
+              "name": "first_name",
+              "type": "TEXT",
+              "desc": "ім’я"
+            },
+            {
+              "name": "last_name",
+              "type": "TEXT",
+              "desc": "прізвище"
+            },
+            {
+              "name": "birth_date",
+              "type": "TEXT",
+              "desc": "дата народження, РРРР-ММ-ДД"
+            },
+            {
+              "name": "age",
+              "type": "INTEGER",
+              "desc": "вік на 31.10.1994 (день вибору чемпіонів)"
+            },
+            {
+              "name": "school",
+              "type": "TEXT",
+              "desc": "школа"
+            },
+            {
+              "name": "house",
+              "type": "TEXT",
+              "desc": "гуртожиток Гоґвортсу"
+            },
+            {
+              "name": "wand_wood",
+              "type": "TEXT",
+              "desc": "деревина чарівної палички"
+            },
+            {
+              "name": "wand_core",
+              "type": "TEXT",
+              "desc": "серцевина палички"
+            },
+            {
+              "name": "wand_length",
+              "type": "REAL",
+              "desc": "довжина палички, дюйми"
+            },
+            {
+              "name": "champion",
+              "type": "INTEGER",
+              "desc": "1 — чемпіон турніру, 0 — ні"
+            }
+          ],
+          "rows": [
+            [
+              1,
+              "Harry",
+              "Potter",
+              "1980-07-31",
+              14,
+              "Hogwarts",
+              "Gryffindor",
+              "holly",
+              "phoenix feather",
+              11,
+              1
+            ],
+            [
+              2,
+              "Ron",
+              "Weasley",
+              "1980-03-01",
+              14,
+              "Hogwarts",
+              "Gryffindor",
+              "willow",
+              "unicorn hair",
+              14,
+              0
+            ],
+            [
+              3,
+              "Hermione",
+              "Granger",
+              "1979-09-19",
+              15,
+              "Hogwarts",
+              "Gryffindor",
+              "vine",
+              "dragon heartstring",
+              10.75,
+              0
+            ],
+            [
+              4,
+              "Neville",
+              "Longbottom",
+              "1980-07-30",
+              14,
+              "Hogwarts",
+              "Gryffindor",
+              null,
+              null,
+              null,
+              0
+            ],
+            [
+              5,
+              "Ginny",
+              "Weasley",
+              "1981-08-11",
+              13,
+              "Hogwarts",
+              "Gryffindor",
+              null,
+              null,
+              null,
+              0
+            ],
+            [
+              6,
+              "Fred",
+              "Weasley",
+              "1978-04-01",
+              16,
+              "Hogwarts",
+              "Gryffindor",
+              null,
+              null,
+              null,
+              0
+            ],
+            [
+              7,
+              "George",
+              "Weasley",
+              "1978-04-01",
+              16,
+              "Hogwarts",
+              "Gryffindor",
+              null,
+              null,
+              null,
+              0
+            ],
+            [
+              8,
+              "Draco",
+              "Malfoy",
+              "1980-06-05",
+              14,
+              "Hogwarts",
+              "Slytherin",
+              "hawthorn",
+              "unicorn hair",
+              10,
+              0
+            ],
+            [
+              9,
+              "Cedric",
+              "Diggory",
+              null,
+              17,
+              "Hogwarts",
+              "Hufflepuff",
+              "ash",
+              "unicorn hair",
+              12.25,
+              1
+            ],
+            [
+              10,
+              "Fleur",
+              "Delacour",
+              null,
+              17,
+              "Beauxbatons",
+              null,
+              "rosewood",
+              "Veela hair",
+              9.5,
+              1
+            ],
+            [
+              11,
+              "Viktor",
+              "Krum",
+              null,
+              18,
+              "Durmstrang",
+              null,
+              "hornbeam",
+              "dragon heartstring",
+              10.25,
+              1
+            ],
+            [
+              12,
+              "Albus",
+              "Dumbledore",
+              null,
+              113,
+              "Hogwarts",
+              "Gryffindor",
+              "elder",
+              "Thestral hair",
+              15,
+              0
+            ],
+            [
+              13,
+              "Minerva",
+              "McGonagall",
+              "1935-10-04",
+              59,
+              "Hogwarts",
+              "Gryffindor",
+              "fir",
+              "dragon heartstring",
+              9.5,
+              0
+            ],
+            [
+              14,
+              "Severus",
+              "Snape",
+              "1960-01-09",
+              34,
+              "Hogwarts",
+              "Slytherin",
+              null,
+              null,
+              null,
+              0
+            ],
+            [
+              15,
+              "Rubeus",
+              "Hagrid",
+              "1928-12-06",
+              65,
+              "Hogwarts",
+              "Gryffindor",
+              "oak",
+              null,
+              16,
+              0
+            ],
+            [
+              16,
+              "Tom",
+              "Riddle",
+              "1926-12-31",
+              67,
+              "Hogwarts",
+              "Slytherin",
+              "yew",
+              "phoenix feather",
+              13.5,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    "glossary": [
+      [
+        "Hogwarts",
+        "Гоґвортс"
+      ],
+      [
+        "Beauxbatons",
+        "Бобатон"
+      ],
+      [
+        "Durmstrang",
+        "Дурмстранг"
+      ],
+      [
+        "Gryffindor",
+        "Ґрифіндор"
+      ],
+      [
+        "Slytherin",
+        "Слизерин"
+      ],
+      [
+        "Hufflepuff",
+        "Гафелпаф"
+      ],
+      [
+        "Ravenclaw",
+        "Рейвенклов"
+      ],
+      [
+        "phoenix feather",
+        "перо фенікса"
+      ],
+      [
+        "unicorn hair",
+        "волосина єдинорога"
+      ],
+      [
+        "dragon heartstring",
+        "жила з серця дракона"
+      ],
+      [
+        "Veela hair",
+        "волосина віли"
+      ],
+      [
+        "Thestral hair",
+        "волосина тестрала"
+      ],
+      [
+        "holly",
+        "падуб"
+      ],
+      [
+        "willow",
+        "верба"
+      ],
+      [
+        "vine",
+        "виноградна лоза"
+      ],
+      [
+        "hawthorn",
+        "глід"
+      ],
+      [
+        "ash",
+        "ясен"
+      ],
+      [
+        "rosewood",
+        "рожеве дерево"
+      ],
+      [
+        "hornbeam",
+        "граб"
+      ],
+      [
+        "elder",
+        "бузина"
+      ],
+      [
+        "fir",
+        "ялиця"
+      ],
+      [
+        "oak",
+        "дуб"
+      ],
+      [
+        "yew",
+        "тис"
+      ]
+    ],
+    "levels": [
+      {
+        "id": "l1",
+        "text": "Виведи всю таблицю characters: усі стовпці й усі записи.",
+        "hint": "Зірочка * означає «усі стовпці».",
+        "solution": "SELECT * FROM characters"
+      },
+      {
+        "id": "l2",
+        "text": "Виведи для всіх персонажів лише три стовпці в такому порядку: ім’я (first_name), прізвище (last_name), гуртожиток (house).",
+        "hint": "Назви стовпців перелічують через кому після SELECT.",
+        "solution": "SELECT first_name, last_name, house FROM characters"
+      },
+      {
+        "id": "l3",
+        "text": "Хто зі Слизерину (Slytherin)? Виведи ім’я та прізвище.",
+        "hint": "Умова пишеться після FROM: WHERE house = '…'. Текст — в одинарних лапках.",
+        "solution": "SELECT first_name, last_name FROM characters WHERE house = 'Slytherin'"
+      },
+      {
+        "id": "l4",
+        "text": "Кому більше ніж 16 років? Виведи ім’я, прізвище та вік (age).",
+        "hint": "Числа пишуть без лапок: age > 16.",
+        "solution": "SELECT first_name, last_name, age FROM characters WHERE age > 16"
+      },
+      {
+        "id": "l5",
+        "text": "У кого серцевина палички (wand_core) — перо фенікса, 'phoenix feather'? Виведи ім’я та довжину палички (wand_length), від найдовшої до найкоротшої.",
+        "hint": "ORDER BY стоїть у кінці запиту. DESC — від більшого до меншого.",
+        "solution": "SELECT first_name, wand_length FROM characters WHERE wand_core = 'phoenix feather' ORDER BY wand_length DESC",
+        "ordered": true
+      },
+      {
+        "id": "l6",
+        "text": "Знайди ґрифіндорців (Gryffindor), яким 14 років. Виведи ім’я та прізвище, упорядкувавши за прізвищем від A до Z.",
+        "hint": "Дві умови поєднує AND. Перевір великі й малі літери в тексті!",
+        "solution": "SELECT first_name, last_name FROM characters WHERE house = 'Gryffindor' AND age = 14 ORDER BY last_name",
+        "ordered": true
+      }
+    ]
+  },
+  "wide": true
+});
+  </script>
+</body>
+</html>

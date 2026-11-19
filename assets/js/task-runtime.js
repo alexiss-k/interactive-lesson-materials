@@ -92,7 +92,8 @@
     browser: '🌐 Виконується в браузері',
     illustrator: '🖥 Потрібен Adobe Illustrator',
     'own-pc': '🔍 Потрібен комп’ютер з Windows: дані з власного ПК',
-    word: '📝 Потрібен Microsoft Word або LibreOffice Writer'
+    word: '📝 Потрібен Microsoft Word або LibreOffice Writer',
+    access: '🗄 Потрібен Microsoft Access'
   };
 
   /* ---------- page header from the catalog ---------- */

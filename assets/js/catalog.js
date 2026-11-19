@@ -10,8 +10,8 @@
   const $ = id => document.getElementById(id);
   const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const LEVELS = { 1: 'Початковий', 2: 'Середній', 3: 'Складний' };
-  const NEEDS = { browser: '🌐 У браузері', illustrator: '🖥 У програмі + перевірка файлу', 'own-pc': '🔍 Дослідження свого ПК', word: '📝 У Word + перевірка файлу' };
-  const NEEDS_SHORT = { browser: '🌐 У браузері', illustrator: '🖥 Потрібна програма', 'own-pc': '🔍 Свій ПК', word: '📝 Потрібен Word' };
+  const NEEDS = { browser: '🌐 У браузері', illustrator: '🖥 У програмі + перевірка файлу', 'own-pc': '🔍 Дослідження свого ПК', word: '📝 У Word + перевірка файлу', access: '🗄 У програмі Access' };
+  const NEEDS_SHORT = { browser: '🌐 У браузері', illustrator: '🖥 Потрібна програма', 'own-pc': '🔍 Свій ПК', word: '📝 Потрібен Word', access: '🗄 Потрібен Access' };
   const folderUrl = id => 'index.html?folder=' + encodeURIComponent(id);
   const plural = (n, one, few, many) => {
     const m10 = n % 10, m100 = n % 100;

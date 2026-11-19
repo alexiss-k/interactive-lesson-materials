@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Інспектор таблиці — Бази даних</title>
+  <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../assets/css/platform.css">
+  <link rel="stylesheet" href="../../assets/css/task.css">
+  <link rel="stylesheet" href="../../assets/css/lesson-kit.css">
+  <link rel="stylesheet" href="engine/sql.css">
+  <link rel="stylesheet" href="engine/hogwarts.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../../index.html"><span class="ai-logo">IL</span> Інтерактивні уроки</a>
+  </header>
+  <main id="view" class="wrap task-page">
+    <section id="task-head" class="task-head"><h1>Інспектор таблиці</h1></section>
+    <section id="task-game" class="game-host" aria-label="Практичне завдання">
+      <noscript><p class="err">Для виконання завдання увімкніть JavaScript.</p></noscript>
+    </section>
+    <section id="task-result" class="task-result" hidden aria-live="polite"></section>
+    <nav id="task-nav" class="task-nav" aria-label="Інші завдання"></nav>
+  </main>
+
+  <script src="../../data/catalog.js"></script>
+  <script src="../../assets/js/task-runtime.js"></script>
+  <script src="../../assets/js/lesson-kit.js"></script>
+  <script src="engine/mini-sql.js"></script>
+  <script src="engine/table-inspector.js"></script>
+  <script src="engine/sql-lab.js"></script>
+  <script src="engine/summaries.js"></script>
+  <script>
+    TaskRuntime.start({
+  "id": "db-01",
+  "game": "table-inspector",
+  "taskId": "inspector",
+  "data": {
+    "table": {
+      "name": "characters",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "first_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "last_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "birth_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "house",
+          "type": "TEXT"
+        },
+        {
+          "name": "age",
+          "type": "INTEGER"
+        }
+      ],
+      "rows": [
+        {
+          "id": "r1",
+          "cells": [
+            1,
+            "Harry",
+            "Potter",
+            "1980-07-31",
+            "Gryffindor",
+            14
+          ]
+        },
+        {
+          "id": "r2",
+          "cells": [
+            2,
+            "Ron",
+            "Weasley",
+            "01.03.1980",
+            "Gryffindor",
+            14
+          ]
+        },
+        {
+          "id": "r3",
+          "cells": [
+            3,
+            "Hermione",
+            "Granger",
+            "1979-09-19",
+            "Gryffindor",
+            15
+          ]
+        },
+        {
+          "id": "r4",
+          "cells": [
+            8,
+            "Draco",
+            "Malfoy",
+            "1980-06-05",
+            "Slytherin",
+            14
+          ]
+        },
+        {
+          "id": "r5",
+          "cells": [
+            9,
+            "Cedric",
+            "Diggory",
+            null,
+            "Hufflepuff",
+            17
+          ]
+        },
+        {
+          "id": "r6",
+          "cells": [
+            3,
+            "Fred",
+            "Weasley",
+            "1978-04-01",
+            "Gryffindor",
+            16
+          ]
+        },
+        {
+          "id": "r7",
+          "cells": [
+            7,
+            "George",
+            "Weasley",
+            "1978-04-01",
+            "Gryffindor",
+            "шістнадцять"
+          ]
+        }
+      ]
+    },
+    "steps": [
+      {
+        "id": "s1",
+        "kind": "col",
+        "answers": [
+          "house"
+        ],
+        "text": "Познач ПОЛЕ, у якому записано гуртожиток персонажа.",
+        "why": "Поле — це стовпець: у ньому той самий вид даних для всіх записів. Гуртожиток — поле house."
+      },
+      {
+        "id": "s2",
+        "kind": "row",
+        "answers": [
+          "r4"
+        ],
+        "text": "Познач ЗАПИС про Драко Мелфоя.",
+        "why": "Запис — це рядок: усі дані про одного персонажа. Щоб позначити весь запис, клацають номер рядка ліворуч."
+      },
+      {
+        "id": "s3",
+        "kind": "cell",
+        "answers": [
+          "r3:birth_date"
+        ],
+        "text": "Познач ЗНАЧЕННЯ — дату народження Герміони.",
+        "why": "Значення стоїть на перетині запису (Герміона) і поля (birth_date): 1979-09-19."
+      },
+      {
+        "id": "s4",
+        "kind": "col",
+        "answers": [
+          "id"
+        ],
+        "text": "Яке поле підходить на роль ПЕРВИННОГО КЛЮЧА? Познач його.",
+        "why": "Прізвище Weasley повторюється тричі, гуртожиток і вік теж повторюються. Номер id видають кожному запису окремо — тому саме він ключ."
+      },
+      {
+        "id": "s5",
+        "kind": "row",
+        "answers": [
+          "r3",
+          "r6"
+        ],
+        "text": "Один запис порушує правило первинного ключа. Познач цей запис.",
+        "why": "У Герміони й у Фреда однаковий id = 3. Ключ має бути унікальним — справжня СУБД не дозволила б додати другий запис із тим самим ключем."
+      },
+      {
+        "id": "s6",
+        "kind": "cell",
+        "answers": [
+          "r7:age"
+        ],
+        "text": "Знайди ЗНАЧЕННЯ, тип якого не відповідає полю.",
+        "why": "Поле age має тип INTEGER (ціле число), а тут текст «шістнадцять». Такий вік не вдасться порівняти чи посортувати як число."
+      },
+      {
+        "id": "s7",
+        "kind": "cell",
+        "answers": [
+          "r2:birth_date"
+        ],
+        "text": "Знайди дату, записану НЕ у форматі РРРР-ММ-ДД.",
+        "why": "01.03.1980 — так пишуть у документах, але в базі дату зберігаємо як 1980-03-01. Тоді дати правильно сортуються й порівнюються."
+      },
+      {
+        "id": "s8",
+        "kind": "cell",
+        "answers": [
+          "r5:birth_date"
+        ],
+        "text": "Знайди НЕВІДОМЕ значення.",
+        "why": "NULL означає «значення відсутнє»: точної дати народження Седрика в книжках немає. Це не нуль і не помилка."
+      }
+    ]
+  },
+  "wide": true
+});
+  </script>
+</body>
+</html>
