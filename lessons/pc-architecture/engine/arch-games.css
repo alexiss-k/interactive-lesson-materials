@@ -1,0 +1,107 @@
+/* ===== Урок «Архітектура комп'ютера» ===== */
+/* Картки з вибором відповіді */
+.cq-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; }
+.cq-list { display: flex; flex-direction: column; gap: 12px; }
+.cq-card { background: #fff; border: 2px solid var(--line); border-radius: 14px; padding: 12px; display: flex; flex-direction: column; gap: 10px; }
+.cq-card.ok { border-color: var(--ok); background: #F6FCF8; }
+.cq-card.bad { border-color: var(--bad); background: #FFF8F8; }
+.cq-img { height: 150px; display: grid; place-items: center; background: #F7F4EF; border-radius: 10px; overflow: hidden; }
+.cq-img img { max-width: 100%; max-height: 150px; object-fit: contain; }
+.cq-opts { display: flex; flex-wrap: wrap; gap: 6px; }
+.cq-opt { border: 1.5px solid var(--line); background: #FAF8F5; border-radius: 99px; padding: 5px 11px; font-family: inherit; font-size: 13.5px; font-weight: 600; cursor: pointer; display: inline-flex; gap: 5px; align-items: center; }
+.cq-opt:hover:not(:disabled) { border-color: #c9bca9; }
+.cq-opt.on { background: var(--chrome); color: #fff; border-color: var(--chrome); }
+.cq-opt:disabled { cursor: default; opacity: .6; }
+.cq-opt.on:disabled { opacity: 1; }
+.cq-fb:empty { display: none; }
+.cq-fb { font-size: 14px; color: #3f3a35; }
+.cq-card.ok .cq-fb b { color: #136b3c; }
+.cq-card.bad .cq-fb b { color: #9a1f1f; }
+.cq-q { display: flex; gap: 12px; align-items: flex-start; font-size: 17px; line-height: 1.4; }
+.cq-who { font-size: 30px; line-height: 1; }
+
+/* Збери комп'ютер */
+.pcb-grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(300px, 1fr); gap: 20px; align-items: start; }
+.pcb-case { position: relative; aspect-ratio: 640 / 560; background: linear-gradient(160deg, #3A3F47, #23272D); border-radius: 18px; border: 6px solid #15181C; box-shadow: inset 0 0 0 2px #4b525c, 0 8px 24px rgba(0,0,0,.25); user-select: none; }
+.pcb-case.shake { animation: shake .35s; }
+.pcb-case-btn { position: absolute; right: 4%; top: 4%; width: 9%; aspect-ratio: 1; border-radius: 50%; border: 3px solid #5CC8FF; background: #1B2733; color: #5CC8FF; font-size: 22px; cursor: pointer; }
+.pcb-z { position: absolute; border-radius: 6px; transition: box-shadow .1s, background .1s; }
+.pcb-z.hot { box-shadow: 0 0 0 3px #FFB020, 0 0 18px rgba(255,176,32,.6); background: rgba(255,176,32,.15); }
+.pcb-z.area { border: 2px dashed rgba(255,255,255,.25); }
+.pcb-z.area.mb { display: grid; place-items: center; color: rgba(255,255,255,.35); font-weight: 700; }
+.pcb-z.area.psu { background: rgba(0,0,0,.25); }
+.pcb-z.area.bay { display: flex; flex-direction: column; justify-content: space-evenly; padding: 6px; }
+.pcb-z.area.bay i { display: block; height: 18%; border: 2px solid rgba(255,255,255,.18); border-radius: 4px; }
+.pcb-board { position: absolute; border-radius: 6px; background: #1F3A2B; background-image: linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px); background-size: 14px 14px; box-shadow: inset 0 0 0 2px #2D5A41; }
+.pcb-io { position: absolute; left: 1%; top: 3%; width: 7%; height: 40%; background: #8D949C; border-radius: 3px; }
+.pcb-chipset { position: absolute; left: 60%; top: 66%; width: 12%; height: 13%; background: #11161B; border-radius: 4px; box-shadow: inset 0 0 0 2px #2b343d; }
+.pcb-vrm { position: absolute; left: 15%; top: 2%; width: 40%; height: 7%; background: #2A2F36; border-radius: 3px; }
+.pcb-z.slot.socket { background: #C9C2B5; box-shadow: inset 0 0 0 4px #9E968A; }
+.pcb-z.slot.socket i { position: absolute; inset: 18%; background-image: radial-gradient(#7d766c 1.2px, transparent 1.3px); background-size: 7px 7px; }
+.pcb-z.slot.dimm { display: flex; justify-content: space-evenly; padding: 0 4px; }
+.pcb-z.slot.dimm i { display: block; width: 11%; height: 100%; background: #101317; border-radius: 3px; box-shadow: inset 0 0 0 2px #2c3a47; }
+.pcb-z.slot.pcie { display: flex; align-items: center; }
+.pcb-z.slot.pcie i { display: block; width: 100%; height: 34%; background: #101317; border-radius: 3px; box-shadow: inset 0 0 0 2px #3a4a58; }
+.pcb-z.slot.m2 { display: flex; align-items: center; }
+.pcb-z.slot.m2 i { display: block; width: 100%; height: 45%; border: 2px dashed #6c8a77; border-radius: 3px; }
+.pcb-part { position: absolute; display: grid; place-items: center; pointer-events: none; transition: filter .3s; }
+.pcb-part img { max-width: 100%; max-height: 100%; object-fit: contain; filter: drop-shadow(0 3px 5px rgba(0,0,0,.5)); }
+.pcb-part.p-gpu { top: 36% !important; height: 19% !important; }
+.pcb-part.p-ram { justify-items: start; padding-left: 3%; }
+.pcb-part.pop { animation: pop .35s ease-out; }
+.pcb-part.glow img, .pcb-board.glow { filter: drop-shadow(0 0 10px #5CC8FF) drop-shadow(0 0 4px #5CC8FF); }
+.pcb-board.glow { box-shadow: inset 0 0 0 3px #5CC8FF, 0 0 22px #5CC8FF; }
+@keyframes pop { 0% { transform: scale(1.25); } 100% { transform: scale(1); } }
+
+.pcb-side { display: flex; flex-direction: column; }
+.pcb-monitor { display: flex; flex-direction: column; align-items: center; }
+.pcb-screen { width: 100%; aspect-ratio: 16 / 9; border: 10px solid #1B1E22; border-radius: 10px; background: #000; color: #ccc; display: grid; place-items: center; text-align: center; font-family: Consolas, monospace; font-size: 15px; padding: 10px; transition: background .4s; }
+.pcb-screen.off { background: #050505; }
+.pcb-screen.nosig .osd { background: rgba(40,80,160,.85); color: #fff; padding: 8px 18px; border-radius: 6px; font-family: inherit; }
+.pcb-screen.text, .pcb-screen.boot { background: #000; color: #d8d8d8; }
+.pcb-screen .bios { text-align: left; }
+.pcb-screen.desk { background: linear-gradient(135deg, #0B5CAD, #4FB3FF); color: #fff; }
+.pcb-screen .desk-txt { font-family: var(--font); font-size: 24px; font-weight: 800; text-shadow: 0 2px 6px rgba(0,0,0,.3); }
+.pcb-screen .loader { width: 36px; height: 36px; border: 4px solid #444; border-top-color: #5CC8FF; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.pcb-stand { width: 22%; height: 18px; background: #1B1E22; border-radius: 0 0 8px 8px; }
+.pcb-power { width: 54px; height: 54px; border-radius: 50%; border: none; background: #1E9E5A; color: #fff; font-size: 26px; cursor: pointer; box-shadow: 0 3px 0 #137042; flex: none; }
+.pcb-power:hover:not(:disabled) { filter: brightness(1.08); }
+.pcb-power:active:not(:disabled) { transform: translateY(2px); box-shadow: 0 1px 0 #137042; }
+.pcb-power:disabled { background: #9CA3AA; box-shadow: none; cursor: default; }
+.pcb-stat { margin: 6px 0; }
+.pcb-msg:empty { display: none; }
+.pcb-msg { margin-top: 8px; padding: 10px 12px; border-radius: 10px; background: #F5F1EA; font-size: 14.5px; }
+.pcb-msg.ok { background: var(--ok-soft); color: #145c35; }
+.pcb-msg.bad { background: var(--bad-soft); color: #8a1f1f; }
+.pcb-msg.warn { background: #FFF3E0; color: #8a4b00; }
+.pcb-log { margin: 10px 0 0; padding-left: 20px; font-size: 14px; }
+.pcb-log li { margin: 4px 0; animation: tin .3s ease-out; }
+.pcb-tray { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; }
+.pcb-card { background: #fff; border: 2px solid var(--line); border-radius: 12px; padding: 8px; cursor: grab; touch-action: none; user-select: none; text-align: center; }
+.pcb-card:hover { border-color: #2F7DF6; }
+.pcb-card.dim { opacity: .5; cursor: default; }
+.pcb-ci { height: 80px; display: grid; place-items: center; }
+.pcb-ci img { max-width: 100%; max-height: 80px; object-fit: contain; pointer-events: none; }
+.pcb-cn { font-size: 13px; font-weight: 700; margin-top: 6px; line-height: 1.25; }
+.pcb-card.drag-ghost { position: fixed; z-index: 3000; pointer-events: none; opacity: .92; box-shadow: 0 10px 26px rgba(0,0,0,.35); }
+@media (max-width: 900px) { .pcb-grid { grid-template-columns: 1fr; } }
+
+/* компоновка: лоток | корпус | монітор */
+.pcb-grid { grid-template-columns: minmax(230px, 0.62fr) minmax(0, 1.3fr) minmax(280px, 0.9fr); gap: 16px; }
+.pcb-case-wrap { display: flex; justify-content: center; }
+.pcb-case { width: min(100%, calc((100vh - 230px) * 640 / 560)); }
+.pcb-tray { grid-template-columns: 1fr 1fr; gap: 8px; }
+.pcb-card { padding: 6px; display: flex; flex-direction: column; align-items: center; }
+.pcb-ci { height: 58px; width: 100%; }
+.pcb-ci img { max-height: 58px; }
+.pcb-cn { font-size: 12px; margin-top: 4px; }
+@media (max-width: 1150px) { .pcb-grid { grid-template-columns: minmax(200px, .7fr) minmax(0, 1.3fr); } .pcb-side { grid-column: 1 / -1; } }
+
+.pcb-part { display: block; }
+.pcb-part img { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; max-height: none; object-fit: contain; }
+.pcb-part.p-gpu { top: 34% !important; height: 19% !important; left: 8% !important; width: 62% !important; }
+.pcb-part.p-ram img { inset: 0 auto 0 4%; width: 26%; object-fit: fill; }
+.pcb-part.p-psu img { inset: 8% 4%; width: 92%; height: 84%; }
+.pcb-part.p-hdd img { inset: 30% 6%; width: 88%; height: 40%; }
+.pcb-part.p-cpu img { inset: 6%; width: 88%; height: 88%; }

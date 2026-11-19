@@ -88,6 +88,12 @@
     return ['low', 'Варто спробувати ще раз', 'Перечитай підказки й пройди завдання знову.'];
   }
 
+  const NEEDS_LONG = {
+    browser: '🌐 Виконується в браузері',
+    illustrator: '🖥 Потрібен Adobe Illustrator',
+    'own-pc': '🔍 Потрібен комп’ютер з Windows: дані з власного ПК'
+  };
+
   /* ---------- page header from the catalog ---------- */
   function renderHeader(item, folder, siblings) {
     const root = rootUrl();
@@ -106,7 +112,7 @@
       h('div', { class: 'task-meta' },
         h('span', { class: 'lvl-badge lvl-' + item.level, text: ['', 'Початковий рівень', 'Середній рівень', 'Складний рівень'][item.level] || '' }),
         item.duration ? h('span', { class: 'meta-chip', text: '⏱ ' + item.duration }) : null,
-        h('span', { class: 'meta-chip', text: item.needs === 'illustrator' ? '🖥 Потрібен Adobe Illustrator' : '🌐 Виконується в браузері' }),
+        h('span', { class: 'meta-chip', text: NEEDS_LONG[item.needs] || NEEDS_LONG.browser }),
         (item.tags || []).map(t => h('a', { class: 'tag', href: root + 'index.html?folder=' + encodeURIComponent(folder.id) + '&tags=' + encodeURIComponent(t), text: '#' + (tagNames[t] || t) }))),
       ...(item.note ? [h('p', { class: 'task-note', html: item.note })] : []));
     document.title = item.title + ' — ' + folder.title;
@@ -125,7 +131,8 @@
     const box = document.getElementById('task-result');
     if (!box) return;
     const score = Math.max(0, Math.min(100, Math.round(Number(entry.score) || 0)));
-    const [cls, title, text] = verdict(score);
+    const ungraded = !!state.cfg.ungraded;
+    const [cls, title, text] = ungraded ? ['great', 'Завдання завершено', 'Це завдання без балів: нижче — усе, що ти заповнив(-ла).'] : verdict(score);
     const root = rootUrl();
     const next = state.siblings[state.siblings.findIndex(x => x.id === state.item.id) + 1];
     const summary = h('div', { class: 'res-summary' });
@@ -139,7 +146,9 @@
     box.hidden = false;
     box.append(
       h('div', { class: 'res-top' },
-        h('div', { class: 'res-ring', style: '--p:' + score, role: 'img', 'aria-label': 'Результат ' + score + '%' }, h('b', { text: score + '%' })),
+        ungraded
+          ? h('div', { class: 'res-ring', style: '--p:100', role: 'img', 'aria-label': 'Завершено' }, h('b', { text: '✓' }))
+          : h('div', { class: 'res-ring', style: '--p:' + score, role: 'img', 'aria-label': 'Результат ' + score + '%' }, h('b', { text: score + '%' })),
         h('div', { class: 'res-text' },
           h('div', { class: 'res-kicker', text: 'Результат завдання' }),
           h('h2', { text: title }),
@@ -187,6 +196,8 @@
     window.addEventListener('pageshow', e => { if (e.persisted) location.reload(); });
 
     const assetBase = new URL('./', location.href).href;
+    /* some engines resolve their pictures through a global helper */
+    window.lessonAssets = p => new URL(String(p || '').replace(/^\/+/, ''), assetBase).href;
     let saved = null;
     const ctx = {
       task: { id: cfg.taskId || cfg.game, game: cfg.game, title: item.title, desc: item.summary, data: cfg.data || {}, wide: !!cfg.wide, manual: false },
