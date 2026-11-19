@@ -1,0 +1,6 @@
+/* LessonKit 1.0 styles. Declare in `styles` when a game uses LessonKit banners or drag ghosts. */
+.lk-ghost { position: fixed; z-index: 3000; pointer-events: none; opacity: .9; box-shadow: 0 8px 24px rgba(0,0,0,.18); }
+html.lk-dragging, html.lk-dragging * { cursor: grabbing !important; user-select: none !important; }
+.lk-banner { border-radius: 10px; padding: 10px 14px; margin: 0 0 12px; font-weight: 600; }
+.lk-returned { background: var(--accent-soft, #FFF0E0); border: 2px solid var(--accent, #FF7A00); color: var(--accent-ink, #B54F00); }
+.lk-readonly { background: #EEF3FA; border: 2px solid #B9CBE4; color: #2a4466; }

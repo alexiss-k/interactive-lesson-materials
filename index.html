@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Інтерактивні уроки</title>
+  <meta name="description" content="Архів інтерактивних практичних завдань для учнів і вчителів: фільтри за предметами й темами.">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/platform.css">
+  <link rel="stylesheet" href="assets/css/catalog.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html"><span class="ai-logo">IL</span> Інтерактивні уроки</a>
+  </header>
+
+  <main class="wrap catalog">
+    <section class="hero">
+      <h1>Архів практичних завдань</h1>
+      <p>Інтерактивні завдання з автоматичною перевіркою прямо в браузері. Обирай папку й теги, щоб знайти потрібне, і ділися посиланням з учнями чи колегами.</p>
+    </section>
+
+    <section class="filters card" aria-label="Фільтри">
+      <div class="f-row">
+        <label class="f-search">
+          <span class="sr-only">Пошук</span>
+          <input id="q" class="inp" type="search" placeholder="Пошук за назвою чи описом…" autocomplete="off">
+        </label>
+        <button id="reset" class="btn small ghost" type="button">Скинути фільтри</button>
+      </div>
+      <div class="f-group">
+        <div class="f-label">Папка</div>
+        <div id="folders" class="chips" role="group" aria-label="Папка"></div>
+      </div>
+      <div class="f-group">
+        <div class="f-label">Рівень</div>
+        <div id="levels" class="chips" role="group" aria-label="Рівень"></div>
+      </div>
+      <div class="f-group">
+        <div class="f-label">Де виконується</div>
+        <div id="needs" class="chips" role="group" aria-label="Де виконується"></div>
+      </div>
+      <div class="f-group">
+        <div class="f-label">Теги <small class="muted">(можна обрати кілька)</small></div>
+        <div id="tags" class="chips" role="group" aria-label="Теги"></div>
+      </div>
+    </section>
+
+    <p id="count" class="count" role="status" aria-live="polite"></p>
+    <div id="results"></div>
+  </main>
+
+  <footer class="foot wrap">
+    <p class="muted">Кожне завдання — окрема сторінка. Прогрес не зберігається: після оновлення сторінки завдання починається спочатку.</p>
+  </footer>
+
+  <script src="data/catalog.js"></script>
+  <script src="assets/js/catalog.js"></script>
+</body>
+</html>

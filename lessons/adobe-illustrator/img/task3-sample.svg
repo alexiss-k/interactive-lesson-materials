@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 290" width="340" height="290">
+  <title>Зразок завдання 3: світлофор посередині вебдокумента 800 на 600 пікселів</title>
+  <rect width="340" height="290" fill="#535353"/>
+  <rect x="20" y="20" width="300" height="225" fill="#000" opacity=".25" transform="translate(3 4)"/>
+  <rect x="20" y="20" width="300" height="225" fill="#fff"/>
+  <rect x="146" y="52" width="48" height="160" fill="#3C3C3B" stroke="#000" stroke-width="4"/>
+  <circle cx="170" cy="85" r="17" fill="#E30613"/>
+  <circle cx="170" cy="132" r="17" fill="#FFED00"/>
+  <circle cx="170" cy="179" r="17" fill="#009640"/>
+  <text x="170" y="268" fill="#E6E6E6" font-family="Segoe UI, Arial, sans-serif" font-size="15" text-anchor="middle">Веб · 800 × 600 px · RGB → SVG</text>
+</svg>
