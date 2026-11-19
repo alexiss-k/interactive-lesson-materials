@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Чи підійде до нашої плати? — Архітектура ПК</title>
+  <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../assets/css/platform.css">
+  <link rel="stylesheet" href="../../assets/css/task.css">
+  <link rel="stylesheet" href="engine/games.css">
+  <link rel="stylesheet" href="engine/arch-games.css">
+  <link rel="stylesheet" href="engine/cpu-games.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../../index.html"><span class="ai-logo">IL</span> Інтерактивні уроки</a>
+  </header>
+  <main class="wrap task-page">
+    <section id="task-head" class="task-head"><h1>Чи підійде до нашої плати?</h1></section>
+    <section id="task-game" class="game-host" aria-label="Практичне завдання">
+      <noscript><p class="err">Для виконання завдання увімкніть JavaScript.</p></noscript>
+    </section>
+    <section id="task-result" class="task-result" hidden aria-live="polite"></section>
+    <nav id="task-nav" class="task-nav" aria-label="Інші завдання"></nav>
+  </main>
+
+  <script src="../../data/catalog.js"></script>
+  <script src="../../assets/js/task-runtime.js"></script>
+  <script src="engine/arch-games.js"></script>
+  <script src="engine/cpu-games.js"></script>
+  <script src="engine/summaries.js"></script>
+  <script>
+    TaskRuntime.start({
+  "id": "pc-11",
+  "game": "cpu-fit",
+  "taskId": "fit"
+});
+  </script>
+</body>
+</html>

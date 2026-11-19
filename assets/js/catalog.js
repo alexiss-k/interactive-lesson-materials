@@ -10,7 +10,8 @@
   const $ = id => document.getElementById(id);
   const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const LEVELS = { 1: 'Початковий', 2: 'Середній', 3: 'Складний' };
-  const NEEDS = { browser: '🌐 У браузері', illustrator: '🖥 У програмі + перевірка файлу' };
+  const NEEDS = { browser: '🌐 У браузері', illustrator: '🖥 У програмі + перевірка файлу', 'own-pc': '🔍 Дослідження свого ПК' };
+  const NEEDS_SHORT = { browser: '🌐 У браузері', illustrator: '🖥 Потрібна програма', 'own-pc': '🔍 Свій ПК' };
   const folderUrl = id => 'index.html?folder=' + encodeURIComponent(id);
   const plural = (n, one, few, many) => {
     const m10 = n % 10, m100 = n % 100;
@@ -42,7 +43,7 @@
   const norm = s => String(s || '').toLowerCase().replace(/[’'`]/g, '');
   function textMatch(it, q) {
     if (!q) return true;
-    const hay = norm([it.title, it.summary, it.source, (it.tags || []).map(t => CAT.tags[t] || t).join(' ')].join(' '));
+    const hay = norm([it.title, it.summary, (it.tags || []).map(t => CAT.tags[t] || t).join(' ')].join(' '));
     return norm(q).split(/\s+/).filter(Boolean).every(w => hay.includes(w));
   }
   function matches(it, skip) {
@@ -85,11 +86,10 @@
       <div class="tc-meta">
         <span class="lvl-badge lvl-${it.level}">${esc(LEVELS[it.level] || '')}</span>
         ${it.duration ? `<span class="meta-chip">⏱ ${esc(it.duration)}</span>` : ''}
-        <span class="meta-chip">${it.needs === 'illustrator' ? '🖥 Потрібна програма' : '🌐 У браузері'}</span>
+        <span class="meta-chip">${NEEDS_SHORT[it.needs] || NEEDS_SHORT.browser}</span>
         ${tags}
         <button type="button" class="btn small ghost tc-share" title="Скопіювати посилання на завдання">🔗 Посилання</button>
-      </div>
-      ${it.source ? `<div class="tc-src muted">Джерело: ${esc(it.source)}</div>` : ''}`;
+      </div>`;
     el.querySelectorAll('button.tag').forEach(b => b.addEventListener('click', () => {
       const t = b.dataset.tag;
       state.tags = state.tags.includes(t) ? state.tags.filter(x => x !== t) : state.tags.concat(t);
